@@ -1,87 +1,99 @@
 import { motion } from "framer-motion";
-import { FileText, Palette, Code, Rocket } from "lucide-react";
+import { FileText, Palette, Code, Rocket, ChevronRight } from "lucide-react";
 
 const steps = [
   {
     id: "01",
-    title: "Intake",
-    description: "Fill out our smart brief. We collect your assets, content, and goals in under 30 minutes.",
+    title: "INTELLIGENT INTAKE",
+    description: "Our AI-driven brief captures your brand DNA in minutes. No fluff, just high-fidelity data points.",
     icon: FileText,
-    time: "0-2h"
+    time: "02H",
+    tag: "Discovery"
   },
   {
     id: "02",
-    title: "Design",
-    description: "We create a premium visual system tailored to your brand identity and conversion goals.",
+    title: "VISUAL ARCHITECTURE",
+    description: "We don't 'design'—we engineer a visual system that commands attention and forces conversion.",
     icon: Palette,
-    time: "2-8h"
+    time: "06H",
+    tag: "Design"
   },
   {
     id: "03",
-    title: "Build",
-    description: "Our engineers develop your site using modern frameworks, setting up automation and integrations.",
+    title: "CORE DEVELOPMENT",
+    description: "Deployment of a hardened, scalable React architecture with sub-10ms response targets.",
     icon: Code,
-    time: "8-18h"
+    time: "10H",
+    tag: "Build"
   },
   {
     id: "04",
-    title: "Launch",
-    description: "Final QA, performance optimization, and live deployment to a global edge network.",
+    title: "GLOBAL DEPLOYMENT",
+    description: "Instant propagation across our elite edge network. Your brand is now live and dominant.",
     icon: Rocket,
-    time: "18-24h"
+    time: "06H",
+    tag: "Launch"
   }
 ];
 
 export function ProcessSteps() {
   return (
-    <section id="process" className="py-24 bg-slate-50 dark:bg-slate-900 overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="mb-16 md:flex justify-between items-end">
-          <div className="max-w-2xl">
-            <h2 className="font-display text-4xl font-bold text-slate-900 dark:text-white mb-4">
-              The <span className="text-primary">24-Hour</span> Sprint
-            </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400">
-              Our streamlined workflow eliminates bloat. We focus purely on what matters to get you live.
-            </p>
-          </div>
+    <section id="process" className="py-32 relative bg-slate-950 overflow-hidden">
+      {/* Background radial glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-4xl mb-24">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold tracking-[0.3em] uppercase mb-6"
+          >
+            Surgical Execution
+          </motion.div>
+          <h2 className="font-display text-5xl md:text-7xl font-black text-white mb-8">
+            THE 24-HOUR <br />
+            <span className="text-gradient">VELOCITY SPRINT.</span>
+          </h2>
         </div>
 
-        <div className="relative">
-          {/* Connecting Line (Desktop) */}
-          <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-slate-200 dark:bg-slate-800 z-0" />
-          
-          <div className="grid md:grid-cols-4 gap-12 relative z-10">
-            {steps.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                className="relative"
-              >
-                <div className="w-24 h-24 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-xl flex items-center justify-center mb-8 mx-auto md:mx-0 relative z-10 group hover:border-primary transition-colors">
-                  <div className="absolute -top-3 -right-3 bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded-full border border-white">
-                    {step.time}
-                  </div>
-                  <step.icon className="w-8 h-8 text-slate-400 group-hover:text-primary transition-colors" />
+        <div className="grid lg:grid-cols-4 gap-px bg-white/5 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
+          {steps.map((step, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.15 }}
+              className="group relative p-10 bg-slate-950 hover:bg-white/[0.02] transition-colors flex flex-col min-h-[400px]"
+            >
+              <div className="flex justify-between items-start mb-12">
+                <span className="text-4xl font-black text-white/10 group-hover:text-primary/20 transition-colors duration-500">
+                  {step.id}
+                </span>
+                <div className="text-[10px] font-bold tracking-widest text-primary bg-primary/10 px-2 py-1 rounded">
+                  {step.time}
                 </div>
-                
-                <div className="text-center md:text-left">
-                  <span className="block text-6xl font-display font-bold text-slate-100 dark:text-slate-800 absolute -top-10 -left-4 -z-10 select-none">
-                    {step.id}
-                  </span>
-                  <h3 className="font-display text-xl font-bold text-slate-900 dark:text-white mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                    {step.description}
-                  </p>
+              </div>
+
+              <div className="mt-auto">
+                <div className="mb-4 inline-flex items-center gap-2 text-[10px] font-black tracking-widest text-slate-500 uppercase">
+                   <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                   {step.tag}
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                <h3 className="font-display text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">
+                  {step.title}
+                </h3>
+                <p className="text-slate-400 font-light leading-relaxed text-sm">
+                  {step.description}
+                </p>
+              </div>
+
+              {/* Hover highlight line */}
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,103 +1,129 @@
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, Shield, Zap, Globe } from "lucide-react";
+import { motion } from "framer-motion";
+
+const plans = [
+  {
+    name: "STRATEGIC ASSET",
+    price: "4.5k",
+    description: "High-frequency landing page architecture.",
+    features: [
+      "Elite Component Library",
+      "Sub-20ms Global Latency",
+      "Advanced Lead Intelligence",
+      "Custom Motion System",
+      "24h Surgical Delivery"
+    ],
+    highlight: false
+  },
+  {
+    name: "MARKET DOMINANCE",
+    price: "12.5k",
+    description: "Complete ecosystem transformation.",
+    features: [
+      "Multi-Vector Experience",
+      "Deep AI Integration",
+      "Autonomous CMS Control",
+      "Global Edge Distribution",
+      "Priority 24h Pipeline",
+      "Behavioral Analytics",
+      "Elite Security Shield"
+    ],
+    highlight: true
+  },
+  {
+    name: "ELITE CUSTOM",
+    price: "POA",
+    description: "Bespoke digital weapons for enterprise.",
+    features: [
+      "Custom Engine Architecture",
+      "Full API Orchestration",
+      "Zero-Day Scaling",
+      "Dedicated Dev Ops",
+      "White-Glove Handover"
+    ],
+    highlight: false
+  }
+];
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-24 bg-white dark:bg-slate-950">
-      <div className="container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-display text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            Transparent Pricing
+    <section id="pricing" className="py-32 bg-slate-950 relative overflow-hidden">
+      {/* Background accents */}
+      <div className="absolute top-0 right-0 w-full h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-24">
+          <div className="text-primary text-xs font-bold tracking-[0.4em] uppercase mb-4">Investment Tiers</div>
+          <h2 className="font-display text-5xl md:text-7xl font-black text-white mb-6">
+            COMMAND THE <br /><span className="text-gradient">MARKET.</span>
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400">
-            No hidden fees. No long-term contracts. Just premium delivery.
+          <p className="text-lg text-slate-400 font-light">
+            We don't sell 'sites'. We deliver high-yield digital capital.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* Starter */}
-          <div className="p-8 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/50 flex flex-col">
-            <h3 className="font-display text-2xl font-bold text-slate-900 dark:text-white mb-2">Landing Page</h3>
-            <p className="text-slate-500 text-sm mb-6">Perfect for campaigns and new products.</p>
-            <div className="text-4xl font-bold text-slate-900 dark:text-white mb-6">
-              $999 <span className="text-base font-normal text-slate-500">one-time</span>
-            </div>
-            
-            <ul className="space-y-4 mb-8 flex-1">
-              {[
-                "Single Scroll Page",
-                "Mobile Responsive",
-                "Lead Capture Form",
-                "Basic SEO Setup",
-                "24h Delivery Guarantee"
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-slate-600 dark:text-slate-300">
-                  <Check className="w-5 h-5 text-green-500 shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            
-            <Button variant="outline" className="w-full">Get Started</Button>
-          </div>
+        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {plans.map((plan, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className={`relative p-1 rounded-[2.5rem] group ${plan.highlight ? 'bg-linear-to-b from-primary/50 via-primary/10 to-transparent shadow-[0_30px_100px_rgba(0,210,184,0.15)]' : 'bg-white/5'}`}
+            >
+              <div className="h-full bg-slate-950 rounded-[2.4rem] p-10 flex flex-col relative overflow-hidden">
+                {plan.highlight && (
+                   <div className="absolute top-6 right-6 px-3 py-1 bg-primary text-slate-950 text-[10px] font-black rounded-full uppercase tracking-tighter">
+                     Primary Choice
+                   </div>
+                )}
+                
+                <div className="mb-10">
+                  <h3 className="text-xs font-bold tracking-[0.3em] text-slate-500 uppercase mb-4">{plan.name}</h3>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-5xl font-black text-white">
+                      {plan.price !== "POA" && "$"}
+                      {plan.price}
+                    </span>
+                    {plan.price !== "POA" && <span className="text-slate-500 font-bold">USD</span>}
+                  </div>
+                  <p className="mt-4 text-slate-400 text-sm font-light leading-relaxed">{plan.description}</p>
+                </div>
 
-          {/* Pro (Featured) */}
-          <div className="p-8 rounded-2xl border-2 border-primary bg-slate-50 dark:bg-slate-900 relative flex flex-col transform md:-translate-y-4 shadow-2xl shadow-primary/10">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-slate-900 font-bold px-4 py-1 rounded-full text-sm">
-              Most Popular
-            </div>
-            <h3 className="font-display text-2xl font-bold text-slate-900 dark:text-white mb-2">Multi-Page Site</h3>
-            <p className="text-slate-500 text-sm mb-6">For established businesses.</p>
-            <div className="text-4xl font-bold text-slate-900 dark:text-white mb-6">
-              $2,499 <span className="text-base font-normal text-slate-500">one-time</span>
-            </div>
-            
-            <ul className="space-y-4 mb-8 flex-1">
-              {[
-                "Up to 5 Pages",
-                "CMS Integration",
-                "Analytics Dashboard",
-                "Booking/Scheduling Tool",
-                "Email Automation Setup",
-                "Advanced SEO",
-                "24h Delivery Guarantee"
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-slate-700 dark:text-slate-200 font-medium">
-                  <Check className="w-5 h-5 text-primary shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            
-            <Button className="w-full bg-primary hover:bg-primary/90 text-slate-900 font-bold">Get Started</Button>
-          </div>
+                <div className="h-px bg-white/5 mb-10" />
 
-          {/* Enterprise */}
-          <div className="p-8 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/50 flex flex-col">
-            <h3 className="font-display text-2xl font-bold text-slate-900 dark:text-white mb-2">Custom Sprint</h3>
-            <p className="text-slate-500 text-sm mb-6">For complex requirements.</p>
-            <div className="text-4xl font-bold text-slate-900 dark:text-white mb-6">
-              Custom <span className="text-base font-normal text-slate-500">pricing</span>
-            </div>
-            
-            <ul className="space-y-4 mb-8 flex-1">
-              {[
-                "Custom Functionality",
-                "3rd Party API Integrations",
-                "Membership Systems",
-                "E-commerce (Lite)",
-                "Priority Support",
-                "Expedited Delivery"
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-slate-600 dark:text-slate-300">
-                  <Check className="w-5 h-5 text-slate-400 shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            
-            <Button variant="outline" className="w-full">Contact Sales</Button>
-          </div>
+                <ul className="space-y-5 mb-12 flex-1">
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-4 text-sm font-medium text-slate-300">
+                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 text-primary" />
+                      </div>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <Button 
+                  className={`w-full h-16 rounded-2xl font-black text-lg transition-all duration-500 ${
+                    plan.highlight 
+                    ? 'bg-primary hover:bg-cyan-400 text-slate-950 shadow-[0_15px_30px_rgba(0,210,184,0.2)]' 
+                    : 'bg-white/5 hover:bg-white/10 text-white border border-white/10'
+                  }`}
+                >
+                  ACQUIRE NOW
+                </Button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        
+        {/* Trust Bar */}
+        <div className="mt-32 pt-16 border-t border-white/5 flex flex-wrap justify-center gap-12 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
+           <div className="flex items-center gap-2 text-white font-bold tracking-tighter text-xl"><Shield className="w-5 h-5" /> FORTRESS</div>
+           <div className="flex items-center gap-2 text-white font-bold tracking-tighter text-xl"><Zap className="w-5 h-5" /> VELOCITY</div>
+           <div className="flex items-center gap-2 text-white font-bold tracking-tighter text-xl"><Globe className="w-5 h-5" /> ORBIT</div>
         </div>
       </div>
     </section>
