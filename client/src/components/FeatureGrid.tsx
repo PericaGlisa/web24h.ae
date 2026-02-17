@@ -1,86 +1,98 @@
 import { motion } from "framer-motion";
-import { Zap, Layout, Code2, Database, Rocket, ShieldCheck } from "lucide-react";
+import { Zap, Layout, Code2, Database, Rocket, ShieldCheck, Diamond, Star, Crown } from "lucide-react";
 
 const features = [
   {
-    icon: Zap,
-    title: "Lightning Fast",
-    description: "From concept to live URL in 24 hours. We optimize for speed without cutting corners on quality.",
-    color: "text-amber-500",
-    bg: "bg-amber-500/10"
+    icon: Diamond,
+    title: "Bespoke Excellence",
+    description: "Every pixel is handcrafted for market dominance. We don't follow trends; we set the gold standard in digital craft.",
+    color: "text-cyan-400",
+    bg: "bg-cyan-400/10"
   },
   {
-    icon: Layout,
-    title: "Premium Design",
-    description: "No generic templates. We use modern, conversion-focused design principles tailored to your brand.",
-    color: "text-blue-500",
-    bg: "bg-blue-500/10"
-  },
-  {
-    icon: Code2,
-    title: "Clean Code",
-    description: "Built on modern stacks (React, Tailwind). Scalable, maintainable, and SEO-friendly out of the box.",
+    icon: Crown,
+    title: "Elite Performance",
+    description: "Our proprietary architecture ensures sub-50ms response times globally. Speed is the ultimate luxury.",
     color: "text-primary",
     bg: "bg-primary/10"
   },
   {
-    icon: Database,
-    title: "CMS Integrated",
-    description: "Manage your content easily. We set up lightweight CMS solutions so you're in control.",
-    color: "text-purple-500",
-    bg: "bg-purple-500/10"
-  },
-  {
-    icon: Rocket,
-    title: "Growth Ready",
-    description: "Integrated with analytics, forms, and marketing tools. Built to convert traffic into leads.",
-    color: "text-rose-500",
-    bg: "bg-rose-500/10"
-  },
-  {
-    icon: ShieldCheck,
-    title: "Secure & Stable",
-    description: "HTTPS by default, automated backups, and edge-network hosting for global reliability.",
-    color: "text-emerald-500",
-    bg: "bg-emerald-500/10"
+    icon: Star,
+    title: "Deep Integration",
+    description: "Full-stack automation that breathes life into your business. Connected, autonomous, and incredibly powerful.",
+    color: "text-blue-500",
+    bg: "bg-blue-500/10"
   }
 ];
 
 export function FeatureGrid() {
   return (
-    <section id="features" className="py-24 bg-white dark:bg-slate-950">
-      <div className="container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-display text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            Not Just Fast. <span className="text-primary">Better.</span>
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400">
-            We bridge the gap between "cheap & fast" and "premium & slow". 
-            Get the best of both worlds.
-          </p>
+    <section id="features" className="py-32 relative overflow-hidden bg-background">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-20 items-center mb-32">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          >
+            <h2 className="font-display text-5xl md:text-7xl font-black text-white mb-8 leading-tight">
+              PRECISION <br />
+              <span className="text-gradient">ENGINEERING.</span>
+            </h2>
+            <p className="text-xl text-slate-400 font-light leading-relaxed max-w-xl">
+              We've eliminated the traditional agency friction. Our process is a high-frequency sprint that delivers world-class digital experiences while others are still in meetings.
+            </p>
+          </motion.div>
+          
+          <div className="grid gap-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                className="glass-card premium-border p-8 flex gap-6 group hover:bg-white/10 transition-all cursor-default"
+              >
+                <div className={`w-14 h-14 rounded-2xl ${feature.bg} ${feature.color} flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 transition-transform`}>
+                  <feature.icon className="w-7 h-7" />
+                </div>
+                <div>
+                  <h3 className="font-display text-2xl font-bold text-white mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-slate-400 leading-relaxed font-light">
+                    {feature.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="p-8 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/20 transition-all group"
-            >
-              <div className={`w-12 h-12 rounded-xl ${feature.bg} ${feature.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                <feature.icon className="w-6 h-6" />
-              </div>
-              <h3 className="font-display text-xl font-bold text-slate-900 dark:text-white mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                {feature.description}
-              </p>
-            </motion.div>
-          ))}
+        {/* Cinematic Visual Divider */}
+        <div className="relative h-[400px] w-full rounded-[2rem] overflow-hidden group">
+          <div className="absolute inset-0 bg-slate-900">
+             <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-transparent to-slate-950 z-10" />
+             <div className="glow-mesh opacity-30" />
+             <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                   <div className="text-[12rem] font-black text-white/5 select-none leading-none">ELITE</div>
+                </div>
+             </div>
+          </div>
+          <div className="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row justify-between items-end md:items-center z-20">
+             <div className="max-w-md">
+                <div className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-2">Technical Superiority</div>
+                <div className="text-2xl font-bold text-white">Zero Compromise Architecture</div>
+             </div>
+             <div className="h-px flex-1 bg-white/10 mx-12 hidden md:block" />
+             <div className="text-right">
+                <div className="text-4xl font-black text-white">99.9%</div>
+                <div className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Performance Delta</div>
+             </div>
+          </div>
         </div>
       </div>
     </section>
