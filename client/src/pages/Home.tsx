@@ -12,7 +12,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <FeatureGrid />
-      <ProcessSteps />
+      <div className="-mt-16 sm:-mt-20 lg:-mt-24">
+        <ProcessSteps />
+      </div>
       <Pricing />
       <CTASection />
       <Footer />

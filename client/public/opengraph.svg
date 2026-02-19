@@ -1,0 +1,40 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#05070F"/>
+      <stop offset="0.5" stop-color="#0A1222"/>
+      <stop offset="1" stop-color="#0B1D2E"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="180" y1="120" x2="1040" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7DF9FF"/>
+      <stop offset="0.45" stop-color="#00D2B8"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="soft" x1="0" y1="0" x2="0" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow" x="-200" y="-200" width="1600" height="1030" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="70" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.2 0 0 0 0 0.9 0 0 0 0 0.8 0 0 0 0.35 0"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#soft)"/>
+  <circle cx="960" cy="140" r="220" fill="url(#accent)" opacity="0.16" filter="url(#glow)"/>
+  <circle cx="220" cy="520" r="260" fill="url(#accent)" opacity="0.12" filter="url(#glow)"/>
+  <rect x="80" y="78" width="1040" height="474" rx="36" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+  <text x="140" y="230" fill="#F8FAFC" font-size="62" font-family="Space Grotesk, Arial, sans-serif" font-weight="700" letter-spacing="-1">
+    Website 24h
+  </text>
+  <text x="140" y="300" fill="url(#accent)" font-size="48" font-family="Space Grotesk, Arial, sans-serif" font-weight="700" letter-spacing="-0.5">
+    Executive Websites in 24 Hours
+  </text>
+  <text x="140" y="370" fill="#94A3B8" font-size="28" font-family="DM Sans, Arial, sans-serif" font-weight="500">
+    Private studio delivering elite, conversion-ready sites in one focused day.
+  </text>
+  <rect x="140" y="420" width="220" height="52" rx="26" fill="rgba(0,210,184,0.16)" stroke="rgba(0,210,184,0.35)"/>
+  <text x="168" y="453" fill="#E2E8F0" font-size="18" font-family="DM Sans, Arial, sans-serif" font-weight="600" letter-spacing="0.8">
+    web24h.ae
+  </text>
+</svg>
