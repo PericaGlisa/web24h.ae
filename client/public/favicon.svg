@@ -1,0 +1,28 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#05070F"/>
+      <stop offset="0.6" stop-color="#0A1222"/>
+      <stop offset="1" stop-color="#0B1D2E"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="110" y1="86" x2="420" y2="446" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7DF9FF"/>
+      <stop offset="0.45" stop-color="#00D2B8"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <filter id="glow" x="-120" y="-120" width="752" height="752" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="40" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.2 0 0 0 0 0.9 0 0 0 0 0.8 0 0 0 0.4 0"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#bg)"/>
+  <circle cx="390" cy="126" r="120" fill="url(#accent)" opacity="0.18" filter="url(#glow)"/>
+  <circle cx="130" cy="392" r="150" fill="url(#accent)" opacity="0.14" filter="url(#glow)"/>
+  <rect x="66" y="66" width="380" height="380" rx="96" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+  <text x="132" y="286" fill="url(#accent)" font-size="118" font-family="Space Grotesk, Arial, sans-serif" font-weight="700" letter-spacing="-2">
+    24h
+  </text>
+  <text x="134" y="334" fill="#E2E8F0" font-size="26" font-family="DM Sans, Arial, sans-serif" font-weight="600" letter-spacing="2">
+    WEB24
+  </text>
+</svg>
