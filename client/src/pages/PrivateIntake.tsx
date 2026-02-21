@@ -281,7 +281,7 @@ export default function PrivateIntake() {
                               type="button"
                               variant="outline"
                               onClick={() => setPreferredStartPreset((current) => (current === preset ? "" : preset))}
-                              className={`h-10 rounded-xl text-xs font-bold tracking-wide border ${
+                              className={`h-10 text-xs font-bold tracking-wide border ${
                                 preferredStartPreset === preset
                                   ? "bg-primary text-slate-950 border-primary"
                                   : "bg-white/5 border-white/10 text-white hover:bg-white/10"
@@ -316,7 +316,7 @@ export default function PrivateIntake() {
 
                     <Button
                       type="submit"
-                      className="w-full h-14 sm:h-16 text-base sm:text-lg font-black bg-primary hover:bg-cyan-400 text-slate-950 rounded-2xl shadow-[0_24px_60px_rgba(0,210,184,0.35)] transition-all hover:scale-[1.02] active:scale-[0.98] group"
+                      className="w-full h-14 sm:h-16 text-base sm:text-lg font-black bg-primary hover:bg-cyan-400 text-slate-950 shadow-[0_24px_60px_rgba(0,210,184,0.35)] transition-all hover:scale-[1.02] active:scale-[0.98] group"
                     >
                       SUBMIT PRIVATE INTAKE <ArrowUpRight className="ml-3 w-6 h-6 group-hover:rotate-45 transition-transform" />
                     </Button>

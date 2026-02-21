@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 
 export function CTASection() {
+  const MotionButton = motion(Button);
+
   return (
-    <section className="py-24 sm:py-32 lg:py-40 bg-slate-950 relative overflow-hidden">
+    <section className="py-24 sm:py-28 lg:py-32 bg-slate-950 relative overflow-hidden">
+      <div className="absolute inset-0 bg-linear-to-b from-slate-900/70 via-slate-950 to-slate-950" />
       <div className="absolute inset-0 opacity-20 pointer-events-none">
          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(0,210,184,0.1),transparent_70%)]" />
       </div>
@@ -30,9 +32,33 @@ export function CTASection() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
-              <Button size="lg" className="h-14 sm:h-20 px-10 sm:px-16 text-base sm:text-xl rounded-2xl bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_24px_60px_rgba(0,210,184,0.35)] transition-all hover:scale-105 active:scale-95 group">
-                REQUEST WHITE-GLOVE CALL <ArrowUpRight className="ml-3 w-6 h-6 group-hover:rotate-45 transition-transform" />
-              </Button>
+              <MotionButton
+                size="lg"
+                animate={{
+                  scale: [1, 1.03, 1],
+                  boxShadow: [
+                    "0 18px 45px rgba(0,210,184,0.25)",
+                    "0 30px 80px rgba(0,210,184,0.55)",
+                    "0 18px 45px rgba(0,210,184,0.25)"
+                  ]
+                }}
+                transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+                className="relative overflow-hidden h-14 sm:h-20 px-10 sm:px-16 text-base sm:text-xl bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_24px_60px_rgba(0,210,184,0.35)] transition-all hover:scale-105 active:scale-95 group"
+              >
+                <motion.span
+                  aria-hidden="true"
+                  className="absolute inset-0"
+                  animate={{ x: ["-120%", "120%"] }}
+                  transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+                  style={{
+                    background:
+                      "linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent)"
+                  }}
+                />
+                <span className="relative z-10">
+                  REQUEST WHITE-GLOVE CALL
+                </span>
+              </MotionButton>
               <div className="flex items-center gap-3 sm:gap-4 text-slate-500 font-bold tracking-widest text-[10px] sm:text-xs uppercase">
                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                  LIVE AVAILABILITY: 2 SLOTS LEFT

@@ -11,11 +11,9 @@ export default function Home() {
     <div className="min-h-screen font-sans text-slate-900 dark:text-slate-50 selection:bg-primary/30">
       <Navbar />
       <Hero />
-      <FeatureGrid />
-      <div className="-mt-16 sm:-mt-20 lg:-mt-24">
-        <ProcessSteps />
-      </div>
+      <ProcessSteps />
       <Pricing />
+      <FeatureGrid />
       <CTASection />
       <Footer />
     </div>

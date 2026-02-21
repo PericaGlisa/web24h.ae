@@ -79,7 +79,7 @@ export default function Investment() {
                   <Link href={`/private-intake?package=${tier.name.toLowerCase()}`}>
                     <Button
                       onClick={() => window.sessionStorage.setItem("selectedPackage", tier.name)}
-                      className="h-12 sm:h-14 rounded-2xl font-black text-sm sm:text-base transition-all duration-500 bg-white/5 hover:bg-white/10 text-white border border-white/10"
+                      className="h-12 sm:h-14 font-black text-sm sm:text-base transition-all duration-500 bg-white/5 hover:bg-white/10 text-white border border-white/10"
                     >
                       BEGIN ENGAGEMENT <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
@@ -129,7 +129,7 @@ export default function Investment() {
                 We validate goals, integrations, and timelines before kickoff to keep delivery tight and premium.
               </p>
               <Link href="/private-intake">
-                <Button size="lg" className="h-14 sm:h-16 px-10 sm:px-12 text-base sm:text-lg rounded-full bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_0_60px_rgba(0,210,184,0.45)] transition-all hover:scale-[1.04]">
+                <Button size="lg" className="h-14 sm:h-16 px-10 sm:px-12 text-base sm:text-lg bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_0_60px_rgba(0,210,184,0.45)] transition-all hover:scale-[1.04]">
                   REQUEST PRIVATE INTAKE <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>

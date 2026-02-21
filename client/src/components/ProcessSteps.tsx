@@ -61,39 +61,68 @@ export function ProcessSteps() {
   ).items;
 
   return (
-    <section id="process" className="py-24 sm:py-28 lg:py-36 relative bg-slate-950 overflow-hidden">
+    <section id="process" className="py-24 sm:py-28 lg:py-32 relative bg-slate-950 overflow-hidden">
+      <div className="absolute inset-0 bg-linear-to-b from-slate-900/70 via-slate-950 to-slate-950" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] sm:w-[700px] sm:h-[700px] lg:w-[900px] lg:h-[900px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mb-12 sm:mb-20 lg:mb-24">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-[10px] font-bold tracking-[0.3em] uppercase mb-6"
-          >
-            White-Glove Delivery
-          </motion.div>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 sm:mb-8">
-            THE 24-HOUR <br />
-            <span className="text-gradient-elite">VELOCITY SPRINT.</span>
-          </h2>
-          <p className="text-slate-400 font-light leading-relaxed text-sm sm:text-base max-w-3xl">
-            A schematic 24-hour build: clear milestones, timed blocks, and approval gates. You always know what happens next—and what you get at each stage. If you already have a logo/brandbook, we implement it; if not, we create a light brand kit for the site (not a full brandbook).
-          </p>
-        </div>
+        <div className="grid lg:grid-cols-12 gap-6 items-start">
+          <div className="surface-elite rounded-[2rem] p-8 sm:p-10 lg:col-span-7">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-[10px] font-bold tracking-[0.3em] uppercase mb-6"
+            >
+              White-Glove Delivery
+            </motion.div>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 sm:mb-8">
+              THE 24-HOUR <br />
+              <span className="text-gradient-elite">VELOCITY SPRINT.</span>
+            </h2>
+            <p className="text-slate-400 font-light leading-relaxed text-sm sm:text-base max-w-3xl">
+              One focused day from brief to launch with fixed milestones, time-boxed execution, and clear approval gates. You know what we need, what you approve, and what you receive at every checkpoint.
+            </p>
+            <p className="text-slate-400 font-light leading-relaxed text-sm sm:text-base max-w-3xl mt-4">
+              If you have a logo or brandbook, we implement it. If not, we craft a light brand kit tailored to the site so everything ships cohesive.
+            </p>
+          </div>
 
-        <div className="grid lg:grid-cols-[1fr_auto] gap-6 sm:gap-8 mb-10 sm:mb-14 lg:mb-16">
-          <div className="surface-elite p-5 sm:p-6">
+          <div className="lg:col-span-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            {[
+              { label: "BRIEF LOCKED", value: "Intake + scope map" },
+              { label: "DIRECTION APPROVED", value: "Visual system before build" },
+              { label: "LAUNCH DELIVERED", value: "Live site + handover" },
+            ].map((item) => (
+              <div key={item.label} className="surface-elite px-5 py-4 rounded-[1.5rem]">
+                <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold">{item.label}</div>
+                <div className="text-sm font-black text-white mt-1">{item.value}</div>
+              </div>
+            ))}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:col-span-2 lg:col-span-1">
+              {[
+                { label: "SLA", value: "15 MIN" },
+                { label: "NDA", value: "STANDARD" },
+                { label: "TEAM", value: "SENIOR-LED" }
+              ].map((item) => (
+                <div key={item.label} className="surface-elite px-4 py-3 rounded-2xl text-center">
+                  <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold">{item.label}</div>
+                  <div className="text-sm font-black text-white mt-1">{item.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="surface-elite rounded-[2rem] p-6 sm:p-8 lg:col-span-12">
             <div className="flex items-center justify-between gap-4 mb-4">
               <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500 font-bold">24H MAP</div>
               <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500 font-bold">H00 → H24</div>
             </div>
             <div className="relative rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
               <div className="absolute inset-0 bg-linear-to-r from-primary/15 via-cyan-500/10 to-blue-600/10 opacity-70" />
-              <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
+              <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
                 {timeline.map((step) => (
-                  <div key={step.id} className="p-4 sm:p-5 bg-slate-950/60">
+                  <div key={step.id} className="p-4 sm:p-5 bg-slate-950/60 min-w-0">
                     <div className="flex items-center justify-between gap-3">
                       <div className="flex items-center gap-3 min-w-0">
                         <div className="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-primary shrink-0">
@@ -128,70 +157,63 @@ export function ProcessSteps() {
             </div>
           </div>
 
-          <div className="flex flex-wrap lg:flex-col gap-3 sm:gap-4">
-            {[
-              { label: "SLA", value: "15 MIN" },
-              { label: "NDA", value: "STANDARD" },
-              { label: "TEAM", value: "SENIOR-LED" }
-            ].map((item) => (
-              <div key={item.label} className="surface-elite px-4 sm:px-5 py-3">
-                <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold">{item.label}</div>
-                <div className="text-sm font-black text-white mt-1">{item.value}</div>
-              </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-6 lg:col-span-12">
+            {timeline.map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15 }}
+                className={[
+                  "group relative surface-elite rounded-[2rem] p-6 sm:p-8 lg:p-9 transition-colors flex flex-col min-h-[280px] sm:min-h-[320px] lg:min-h-[380px] min-w-0",
+                  index === 0 ? "lg:col-span-7" : "",
+                  index === 1 ? "lg:col-span-5" : "",
+                  index === 2 ? "lg:col-span-5" : "",
+                  index === 3 ? "lg:col-span-7" : ""
+                ].join(" ")}
+              >
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-b from-primary/5 via-transparent to-transparent" />
+                <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="flex justify-between items-start mb-8 sm:mb-10">
+                  <span className="text-3xl sm:text-4xl font-black text-white/10 group-hover:text-primary/20 transition-colors duration-500">
+                    {step.id}
+                  </span>
+                  <div className="text-[10px] font-bold tracking-widest text-primary bg-primary/10 px-2 py-1 rounded">
+                    {step.time}
+                  </div>
+                </div>
+
+                <div className="mt-auto">
+                  <div className="mb-4 inline-flex items-center gap-3 text-[10px] font-black tracking-widest text-slate-500 uppercase">
+                    <div className="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-primary">
+                      <step.icon className="w-4 h-4" />
+                    </div>
+                    <span>{step.tag}</span>
+                  </div>
+                  <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500 font-bold mb-3">
+                    H{String(step.start).padStart(2, "0")}–H{String(step.end).padStart(2, "0")} • {step.gate}
+                  </div>
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 group-hover:text-primary transition-colors">
+                    {step.title}
+                  </h3>
+                  <p className="text-slate-400 font-light leading-relaxed text-sm">
+                    {step.description}
+                  </p>
+                  <div className="mt-5 space-y-2">
+                    {step.deliverables.map((item) => (
+                      <div key={item} className="flex items-start gap-3 text-sm text-slate-300">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                        <span className="leading-relaxed">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
+              </motion.div>
             ))}
           </div>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 rounded-[2rem] sm:rounded-[2.25rem] overflow-hidden border border-white/10 shadow-[0_30px_120px_rgba(0,0,0,0.5)]">
-          {timeline.map((step, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
-              className="group relative p-6 sm:p-8 lg:p-10 bg-slate-950 transition-colors flex flex-col min-h-[320px] sm:min-h-[360px] lg:min-h-[420px] hover:bg-white/[0.03]"
-            >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-b from-primary/5 via-transparent to-transparent" />
-              <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="flex justify-between items-start mb-10 sm:mb-12">
-                <span className="text-3xl sm:text-4xl font-black text-white/10 group-hover:text-primary/20 transition-colors duration-500">
-                  {step.id}
-                </span>
-                <div className="text-[10px] font-bold tracking-widest text-primary bg-primary/10 px-2 py-1 rounded">
-                  {step.time}
-                </div>
-              </div>
-
-              <div className="mt-auto">
-                <div className="mb-4 inline-flex items-center gap-3 text-[10px] font-black tracking-widest text-slate-500 uppercase">
-                  <div className="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-primary">
-                    <step.icon className="w-4 h-4" />
-                  </div>
-                  <span>{step.tag}</span>
-                </div>
-                <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500 font-bold mb-3">
-                  H{String(step.start).padStart(2, "0")}–H{String(step.end).padStart(2, "0")} • {step.gate}
-                </div>
-                <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 group-hover:text-primary transition-colors">
-                  {step.title}
-                </h3>
-                <p className="text-slate-400 font-light leading-relaxed text-sm">
-                  {step.description}
-                </p>
-                <div className="mt-5 space-y-2">
-                  {step.deliverables.map((item) => (
-                    <div key={item} className="flex items-start gap-3 text-sm text-slate-300">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                      <span className="leading-relaxed">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
-            </motion.div>
-          ))}
         </div>
       </div>
     </section>

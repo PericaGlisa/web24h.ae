@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle2, Zap, Shield, Globe, Cpu } from "lucide-react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import * as THREE from "three";
 
 export function Hero() {
   const containerRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
@@ -13,12 +15,118 @@ export function Hero() {
   const y1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+  useEffect(() => {
+    if (!canvasRef.current) {
+      return;
+    }
+
+    const canvas = canvasRef.current;
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+    camera.position.set(0, 0, 8);
+
+    const group = new THREE.Group();
+    scene.add(group);
+
+    const wireGeometry = new THREE.IcosahedronGeometry(2.2, 1);
+    const wireMaterial = new THREE.MeshBasicMaterial({
+      color: 0x00d2b8,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.28
+    });
+    const wireMesh = new THREE.Mesh(wireGeometry, wireMaterial);
+    group.add(wireMesh);
+
+    const orbGeometry = new THREE.TorusGeometry(1.6, 0.5, 24, 120);
+    const orbMaterial = new THREE.MeshBasicMaterial({
+      color: 0x22e6d6,
+      transparent: true,
+      opacity: 0.08
+    });
+    const orbMesh = new THREE.Mesh(orbGeometry, orbMaterial);
+    group.add(orbMesh);
+
+    const pointsGeometry = new THREE.BufferGeometry();
+    const pointsCount = 90;
+    const positions = new Float32Array(pointsCount * 3);
+    for (let i = 0; i < pointsCount; i += 1) {
+      const radius = 3 + Math.random() * 1.6;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(2 * Math.random() - 1);
+      positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+      positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+      positions[i * 3 + 2] = radius * Math.cos(phi);
+    }
+    pointsGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    const pointsMaterial = new THREE.PointsMaterial({
+      color: 0x22f0d8,
+      size: 0.04,
+      transparent: true,
+      opacity: 0.26
+    });
+    const points = new THREE.Points(pointsGeometry, pointsMaterial);
+    group.add(points);
+
+    const resize = () => {
+      const section = containerRef.current as HTMLElement | null;
+      const width = section?.clientWidth ?? window.innerWidth;
+      const height = section?.clientHeight ?? window.innerHeight;
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    };
+
+    resize();
+    window.addEventListener("resize", resize);
+
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const clock = new THREE.Clock();
+    let frameId = 0;
+
+    const renderFrame = () => {
+      const t = clock.getElapsedTime();
+      group.rotation.y = t * 0.14;
+      group.rotation.x = t * 0.08;
+      orbMesh.rotation.z = t * 0.1;
+      points.rotation.y = -t * 0.06;
+      renderer.render(scene, camera);
+      frameId = requestAnimationFrame(renderFrame);
+    };
+
+    if (prefersReduced) {
+      renderer.render(scene, camera);
+    } else {
+      renderFrame();
+    }
+
+    return () => {
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+      }
+      window.removeEventListener("resize", resize);
+      wireGeometry.dispose();
+      wireMaterial.dispose();
+      orbGeometry.dispose();
+      orbMaterial.dispose();
+      pointsGeometry.dispose();
+      pointsMaterial.dispose();
+      renderer.dispose();
+    };
+  }, []);
+
   return (
     <section ref={containerRef} className="relative min-h-screen min-h-[100dvh] flex items-center pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 lg:pb-28 overflow-hidden bg-slate-950">
-      <div className="glow-mesh" />
-      <div className="absolute inset-0 noise-overlay pointer-events-none" />
-      <div className="absolute inset-0 z-0 opacity-30" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, rgba(255,255,255,0.08) 1px, transparent 0)", backgroundSize: "44px 44px" }} />
-      <div className="absolute inset-x-0 -top-24 h-64 bg-linear-to-b from-primary/20 via-transparent to-transparent" />
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="glow-mesh" />
+        <div className="absolute inset-0 noise-overlay" />
+        <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-25" />
+        <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, rgba(255,255,255,0.08) 1px, transparent 0)", backgroundSize: "44px 44px" }} />
+        <div className="absolute inset-x-0 -top-24 h-64 bg-linear-to-b from-primary/20 via-transparent to-transparent" />
+      </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
@@ -58,10 +166,10 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-20"
           >
-            <Button size="lg" className="h-14 sm:h-16 px-8 sm:px-12 text-base sm:text-lg rounded-full bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_0_60px_rgba(0,210,184,0.45)] transition-all hover:scale-[1.06] group">
+            <Button size="lg" className="h-14 sm:h-16 px-8 sm:px-12 text-base sm:text-lg bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_0_60px_rgba(0,210,184,0.45)] transition-all hover:scale-[1.06] group">
               INITIATE LAUNCH <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button size="lg" variant="outline" className="h-14 sm:h-16 px-8 sm:px-12 text-base sm:text-lg rounded-full border-white/15 bg-white/5 backdrop-blur-md hover:bg-white/10 text-white font-bold transition-all">
+            <Button size="lg" variant="outline" className="h-14 sm:h-16 px-8 sm:px-12 text-base sm:text-lg border-white/15 bg-white/5 backdrop-blur-md hover:bg-white/10 text-white font-bold transition-all">
               REQUEST PRIVATE BRIEF
             </Button>
           </motion.div>
@@ -88,7 +196,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 + (i * 0.1) }}
-                className="surface-elite p-4 sm:p-6 text-center group hover:bg-white/10 transition-colors"
+                className="rounded-[calc(var(--radius)+8px)] border border-white/15 bg-slate-950 p-4 sm:p-6 text-center group shadow-[0_24px_80px_rgba(0,0,0,0.6)] transition-colors"
               >
                 <metric.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mx-auto mb-2 sm:mb-3 opacity-60 group-hover:opacity-100 transition-opacity" />
                 <div className="text-lg sm:text-2xl font-black text-white mb-1">{metric.value}</div>
@@ -101,7 +209,7 @@ export function Hero() {
             <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.35em] sm:tracking-[0.4em] text-slate-500 font-bold text-center">Built with the tools we use daily</div>
             <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-[10px] sm:text-[11px] font-bold tracking-[0.25em] sm:tracking-[0.3em] text-slate-500">
               {["React", "TypeScript", "Tailwind CSS", "Vite", "Node.js", "Express", "PostgreSQL", "Drizzle ORM"].map((tool) => (
-                <span key={tool} className="px-3 sm:px-4 py-2 rounded-full border border-white/10 bg-white/5">
+                <span key={tool} className="px-3 sm:px-4 py-2 rounded-full border border-white/15 bg-slate-950">
                   {tool}
                 </span>
               ))}

@@ -175,7 +175,7 @@ export default function Features() {
                 If you need a premium site that looks exceptional and ships fast, request a private intake slot.
               </p>
               <Link href="/private-intake">
-                <Button size="lg" className="h-14 sm:h-16 px-10 sm:px-12 text-base sm:text-lg rounded-full bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_0_60px_rgba(0,210,184,0.45)] transition-all hover:scale-[1.04]">
+                <Button size="lg" className="h-14 sm:h-16 px-10 sm:px-12 text-base sm:text-lg bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_0_60px_rgba(0,210,184,0.45)] transition-all hover:scale-[1.04]">
                   REQUEST PRIVATE INTAKE <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
