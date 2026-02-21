@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 
 export function CTASection() {
   const MotionButton = motion(Button);
@@ -33,6 +34,7 @@ export function CTASection() {
             
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
               <MotionButton
+                asChild
                 size="lg"
                 animate={{
                   scale: [1, 1.03, 1],
@@ -45,19 +47,21 @@ export function CTASection() {
                 transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
                 className="relative overflow-hidden h-14 sm:h-20 px-10 sm:px-16 text-base sm:text-xl bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_24px_60px_rgba(0,210,184,0.35)] transition-all hover:scale-105 active:scale-95 group"
               >
-                <motion.span
-                  aria-hidden="true"
-                  className="absolute inset-0"
-                  animate={{ x: ["-120%", "120%"] }}
-                  transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
-                  style={{
-                    background:
-                      "linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent)"
-                  }}
-                />
-                <span className="relative z-10">
-                  REQUEST WHITE-GLOVE CALL
-                </span>
+                <Link href="/private-intake">
+                  <motion.span
+                    aria-hidden="true"
+                    className="absolute inset-0"
+                    animate={{ x: ["-120%", "120%"] }}
+                    transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+                    style={{
+                      background:
+                        "linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent)"
+                    }}
+                  />
+                  <span className="relative z-10">
+                    REQUEST WHITE-GLOVE CALL
+                  </span>
+                </Link>
               </MotionButton>
               <div className="flex items-center gap-3 sm:gap-4 text-slate-500 font-bold tracking-widest text-[10px] sm:text-xs uppercase">
                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />

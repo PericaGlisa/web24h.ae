@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle2, Zap, Shield, Globe, Cpu } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { Link } from "wouter";
 import * as THREE from "three";
 
 export function Hero() {
@@ -166,11 +167,22 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-20"
           >
-            <Button size="lg" className="h-14 sm:h-16 px-8 sm:px-12 text-base sm:text-lg bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_0_60px_rgba(0,210,184,0.45)] transition-all hover:scale-[1.06] group">
-              INITIATE LAUNCH <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            <Button
+              asChild
+              size="lg"
+              className="h-14 sm:h-16 px-8 sm:px-12 text-base sm:text-lg bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_0_60px_rgba(0,210,184,0.45)] transition-all hover:scale-[1.06] group"
+            >
+              <Link href="/private-intake">
+                INITIATE LAUNCH <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </Button>
-            <Button size="lg" variant="outline" className="h-14 sm:h-16 px-8 sm:px-12 text-base sm:text-lg border-white/15 bg-white/5 backdrop-blur-md hover:bg-white/10 text-white font-bold transition-all">
-              REQUEST PRIVATE BRIEF
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="h-14 sm:h-16 px-8 sm:px-12 text-base sm:text-lg border-white/15 bg-white/5 backdrop-blur-md hover:bg-white/10 text-white font-bold transition-all"
+            >
+              <Link href="/pricing">REQUEST PRIVATE BRIEF</Link>
             </Button>
           </motion.div>
 
@@ -208,7 +220,7 @@ export function Hero() {
           <div className="mt-12 sm:mt-14 flex flex-col items-center gap-5 sm:gap-6">
             <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.35em] sm:tracking-[0.4em] text-slate-500 font-bold text-center">Built with the tools we use daily</div>
             <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-[10px] sm:text-[11px] font-bold tracking-[0.25em] sm:tracking-[0.3em] text-slate-500">
-              {["React", "TypeScript", "Tailwind CSS", "Vite", "Node.js", "Express", "PostgreSQL", "Drizzle ORM"].map((tool) => (
+              {["React", "TypeScript", "Next.js", "Tailwind CSS", "Vite", "Node.js", "Express", "PostgreSQL"].map((tool) => (
                 <span key={tool} className="px-3 sm:px-4 py-2 rounded-full border border-white/15 bg-slate-950">
                   {tool}
                 </span>
