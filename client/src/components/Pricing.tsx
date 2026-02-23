@@ -61,10 +61,10 @@ export function Pricing() {
           <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/10 text-white/80 text-[10px] font-bold tracking-[0.3em] uppercase mb-6">
             Executive Investment
           </div>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-7xl 2xl:text-8xl font-black text-white mb-6">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-7xl 2xl:text-8xl font-black text-white mb-6 leading-[0.95] tracking-tight">
             COMMAND THE <br /><span className="text-gradient">MARKET.</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-400 font-light">
+          <p className="text-base sm:text-lg text-slate-300 font-light">
             This website is the proof. Every tier delivers brand-grade quality with measured performance.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold">
@@ -84,9 +84,9 @@ export function Pricing() {
               transition={{ delay: i * 0.1 }}
               className={`relative p-1 rounded-[2rem] sm:rounded-[2.75rem] group min-w-0 ${plan.highlight ? "bg-linear-to-b from-primary/70 via-primary/20 to-transparent shadow-[0_50px_160px_rgba(0,210,184,0.28)] lg:-translate-y-3" : "bg-white/5"}`}
             >
-              <div className="h-full bg-slate-950 rounded-[1.9rem] sm:rounded-[2.6rem] p-5 sm:p-8 lg:p-10 2xl:p-12 flex flex-col relative overflow-hidden">
+              <div className="h-full bg-slate-950/70 backdrop-blur-xl border border-white/10 rounded-[1.9rem] sm:rounded-[2.6rem] p-5 sm:p-8 lg:p-10 2xl:p-12 flex flex-col relative overflow-hidden">
                 {plan.highlight && (
-                   <div className="absolute top-4 sm:top-6 right-4 sm:right-6 px-3 py-1 bg-primary text-slate-950 text-[10px] font-black rounded-full uppercase tracking-tighter">
+                   <div className="absolute top-4 sm:top-6 right-4 sm:right-6 px-3 py-1 bg-primary text-slate-950 text-[10px] font-black rounded-full uppercase tracking-tighter shadow-[0_12px_40px_rgba(0,210,184,0.35)]">
                      Most Chosen
                    </div>
                 )}
@@ -114,25 +114,28 @@ export function Pricing() {
                   ))}
                 </ul>
 
-                <Link href={`/private-intake?package=${plan.name.toLowerCase()}`}>
-                  <Button 
+                <Button
+                  asChild
+                  className={`w-full h-12 sm:h-16 font-black text-sm sm:text-lg transition-all duration-500 ${
+                    plan.highlight
+                    ? "bg-primary hover:bg-cyan-400 text-slate-950 shadow-[0_22px_50px_rgba(0,210,184,0.4)]"
+                    : "bg-white/5 hover:bg-white/10 text-white border border-white/10"
+                  }`}
+                >
+                  <Link
+                    href={`/private-intake?package=${plan.name.toLowerCase()}`}
                     onClick={() => window.sessionStorage.setItem("selectedPackage", plan.name)}
-                    className={`w-full h-12 sm:h-16 font-black text-sm sm:text-lg transition-all duration-500 ${
-                      plan.highlight 
-                      ? "bg-primary hover:bg-cyan-400 text-slate-950 shadow-[0_22px_50px_rgba(0,210,184,0.4)]" 
-                      : "bg-white/5 hover:bg-white/10 text-white border border-white/10"
-                    }`}
                   >
                     BEGIN ENGAGEMENT
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </motion.div>
           ))}
         </div>
 
         <div className="mt-16 sm:mt-24 lg:mt-32 pt-12 sm:pt-16 border-t border-white/5 flex flex-wrap justify-center gap-3 sm:gap-4 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
-          {["Resend", "Cal.com", "WhatsApp", "Google"].map((brand) => (
+          {["Resend", "Cal.com", "WhatsApp", "Google", "Notion", "Cloudflare"].map((brand) => (
             <span
               key={brand}
               className="px-3 sm:px-4 py-2 rounded-full border border-white/10 bg-white/5 text-white font-bold tracking-tight text-sm sm:text-base"

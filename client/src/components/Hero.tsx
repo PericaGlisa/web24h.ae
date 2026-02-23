@@ -135,10 +135,10 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/10 text-white/90 text-xs font-bold tracking-[0.3em] uppercase mb-10 backdrop-blur-xl"
+            className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/15 text-white/90 text-xs font-bold tracking-[0.3em] uppercase mb-10 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,210,184,0.12)]"
           >
             <Shield className="w-3.5 h-3.5" />
-            Executive Website Delivery • 24H
+            Executive Delivery • 24H
           </motion.div>
           
           <motion.h1 
@@ -146,7 +146,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-8xl 2xl:text-9xl font-black leading-[0.95] 2xl:leading-[0.9] tracking-tighter text-white mb-6 sm:mb-8"
+            className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-8xl 2xl:text-9xl font-black leading-[0.95] 2xl:leading-[0.9] tracking-tighter text-white mb-6 sm:mb-8 drop-shadow-[0_18px_60px_rgba(0,0,0,0.65)]"
           >
             EXECUTIVE WEBSITES. <br />
             <span className="text-gradient-elite italic inline-block pr-6 sm:pr-4">LIVE IN 24H.</span>
@@ -156,7 +156,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="text-base sm:text-lg md:text-2xl text-slate-400 mb-10 sm:mb-12 max-w-3xl mx-auto font-light leading-relaxed"
+            className="text-base sm:text-lg md:text-2xl text-slate-300 mb-10 sm:mb-12 max-w-2xl sm:max-w-3xl mx-auto font-light leading-relaxed"
           >
             Private studio delivering elite, conversion-ready sites in one focused day. Strategy, design, build, and launch—ready for scale.
           </motion.p>
@@ -170,7 +170,7 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              className="h-14 sm:h-16 px-8 sm:px-12 text-base sm:text-lg bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_0_60px_rgba(0,210,184,0.45)] transition-all hover:scale-[1.06] group"
+              className="h-14 sm:h-16 px-8 sm:px-12 text-base sm:text-lg bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_0_60px_rgba(0,210,184,0.45)] transition-all hover:scale-[1.06] group rounded-2xl"
             >
               <Link href="/private-intake">
                 INITIATE LAUNCH <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
@@ -180,13 +180,13 @@ export function Hero() {
               asChild
               size="lg"
               variant="outline"
-              className="h-14 sm:h-16 px-8 sm:px-12 text-base sm:text-lg border-white/15 bg-white/5 backdrop-blur-md hover:bg-white/10 text-white font-bold transition-all"
+              className="h-14 sm:h-16 px-8 sm:px-12 text-base sm:text-lg border-white/20 bg-white/5 backdrop-blur-md hover:bg-white/10 text-white font-bold transition-all rounded-2xl"
             >
               <Link href="/pricing">REQUEST PRIVATE BRIEF</Link>
             </Button>
           </motion.div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.35em] text-slate-500 font-bold mb-12 sm:mb-16">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.35em] text-slate-400 font-bold mb-12 sm:mb-16">
             {["NDA STANDARD", "SENIOR-LED TEAM", "15-MIN RESPONSE"].map((item) => (
               <div key={item} className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-primary/80" />
@@ -208,7 +208,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 + (i * 0.1) }}
-                className="rounded-[calc(var(--radius)+8px)] border border-white/15 bg-slate-950 p-4 sm:p-6 text-center group shadow-[0_24px_80px_rgba(0,0,0,0.6)] transition-colors"
+                className="rounded-[calc(var(--radius)+8px)] border border-white/10 bg-slate-950/70 backdrop-blur-xl p-4 sm:p-6 text-center group shadow-[0_24px_80px_rgba(0,0,0,0.6)] transition-all hover:shadow-[0_28px_90px_rgba(0,210,184,0.22)]"
               >
                 <metric.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary mx-auto mb-2 sm:mb-3 opacity-60 group-hover:opacity-100 transition-opacity" />
                 <div className="text-lg sm:text-2xl font-black text-white mb-1">{metric.value}</div>
@@ -219,9 +219,9 @@ export function Hero() {
 
           <div className="mt-12 sm:mt-14 flex flex-col items-center gap-5 sm:gap-6">
             <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.35em] sm:tracking-[0.4em] text-slate-500 font-bold text-center">Built with the tools we use daily</div>
-            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-[10px] sm:text-[11px] font-bold tracking-[0.25em] sm:tracking-[0.3em] text-slate-500">
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-[10px] sm:text-[11px] font-bold tracking-[0.25em] sm:tracking-[0.3em] text-slate-400">
               {["React", "TypeScript", "Next.js", "Tailwind CSS", "Vite", "Node.js", "Express", "PostgreSQL"].map((tool) => (
-                <span key={tool} className="px-3 sm:px-4 py-2 rounded-full border border-white/15 bg-slate-950">
+                <span key={tool} className="px-3 sm:px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl">
                   {tool}
                 </span>
               ))}

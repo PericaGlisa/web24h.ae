@@ -61,13 +61,13 @@ export function ProcessSteps() {
   ).items;
 
   return (
-    <section id="process" className="py-24 sm:py-28 lg:py-32 relative bg-slate-950 overflow-hidden">
-      <div className="absolute inset-0 bg-linear-to-b from-slate-900/70 via-slate-950 to-slate-950" />
+    <section id="process" className="py-20 sm:py-28 lg:py-32 relative bg-slate-950 overflow-hidden">
+      <div className="absolute inset-0 bg-linear-to-b from-slate-900/70 via-slate-950 to-slate-950 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] sm:w-[700px] sm:h-[700px] lg:w-[900px] lg:h-[900px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-6 items-start">
-          <div className="surface-elite rounded-[2rem] p-8 sm:p-10 lg:col-span-7">
+        <div className="grid lg:grid-cols-12 gap-5 sm:gap-6 items-start">
+          <div className="surface-elite rounded-[2rem] p-6 sm:p-8 lg:p-10 lg:col-span-7">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -76,14 +76,14 @@ export function ProcessSteps() {
             >
               White-Glove Delivery
             </motion.div>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 sm:mb-8">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-7xl font-black text-white mb-6 sm:mb-8 leading-[0.98]">
               THE 24-HOUR <br />
               <span className="text-gradient-elite">VELOCITY SPRINT.</span>
             </h2>
-            <p className="text-slate-400 font-light leading-relaxed text-sm sm:text-base max-w-3xl">
+            <p className="text-slate-300 font-light leading-relaxed text-sm sm:text-base max-w-3xl">
               One focused day from brief to launch with fixed milestones, time-boxed execution, and clear approval gates. You know what we need, what you approve, and what you receive at every checkpoint.
             </p>
-            <p className="text-slate-400 font-light leading-relaxed text-sm sm:text-base max-w-3xl mt-4">
+            <p className="text-slate-300 font-light leading-relaxed text-sm sm:text-base max-w-3xl mt-4">
               If you have a logo or brandbook, we implement it. If not, we craft a light brand kit tailored to the site so everything ships cohesive.
             </p>
           </div>
@@ -94,7 +94,7 @@ export function ProcessSteps() {
               { label: "DIRECTION APPROVED", value: "Visual system before build" },
               { label: "LAUNCH DELIVERED", value: "Live site + handover" },
             ].map((item) => (
-              <div key={item.label} className="surface-elite px-5 py-4 rounded-[1.5rem]">
+              <div key={item.label} className="surface-elite px-4 sm:px-5 py-4 rounded-[1.5rem]">
                 <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold">{item.label}</div>
                 <div className="text-sm font-black text-white mt-1">{item.value}</div>
               </div>
@@ -113,16 +113,16 @@ export function ProcessSteps() {
             </div>
           </div>
 
-          <div className="surface-elite rounded-[2rem] p-6 sm:p-8 lg:col-span-12">
+          <div className="surface-elite rounded-[2rem] p-5 sm:p-8 lg:col-span-12">
             <div className="flex items-center justify-between gap-4 mb-4">
               <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500 font-bold">24H MAP</div>
               <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500 font-bold">H00 → H24</div>
             </div>
-            <div className="relative rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+            <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden">
               <div className="absolute inset-0 bg-linear-to-r from-primary/15 via-cyan-500/10 to-blue-600/10 opacity-70" />
               <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
                 {timeline.map((step) => (
-                  <div key={step.id} className="p-4 sm:p-5 bg-slate-950/60 min-w-0">
+                  <div key={step.id} className="p-3 sm:p-5 bg-slate-950/60 min-w-0">
                     <div className="flex items-center justify-between gap-3">
                       <div className="flex items-center gap-3 min-w-0">
                         <div className="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-primary shrink-0">
@@ -157,7 +157,7 @@ export function ProcessSteps() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-6 lg:col-span-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-5 sm:gap-6 lg:col-span-12">
             {timeline.map((step, index) => (
               <motion.div
                 key={index}
@@ -166,7 +166,7 @@ export function ProcessSteps() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15 }}
                 className={[
-                  "group relative surface-elite rounded-[2rem] p-6 sm:p-8 lg:p-9 transition-colors flex flex-col min-h-[280px] sm:min-h-[320px] lg:min-h-[380px] min-w-0",
+                  "group relative surface-elite rounded-[2rem] p-5 sm:p-7 lg:p-9 transition-colors flex flex-col min-h-[240px] sm:min-h-[300px] lg:min-h-[360px] min-w-0",
                   index === 0 ? "lg:col-span-7" : "",
                   index === 1 ? "lg:col-span-5" : "",
                   index === 2 ? "lg:col-span-5" : "",

@@ -17,7 +17,7 @@ export function Footer() {
                 <img
                   src="/images/website24h-logo.png"
                   alt="Website 24h"
-                  className="h-full w-auto max-w-[210px] sm:max-w-[240px] lg:max-w-[260px] object-contain"
+                  className="h-full w-auto max-w-[210px] sm:max-w-[240px] lg:max-w-[260px] object-contain brightness-110 contrast-110 drop-shadow-[0_6px_20px_rgba(255,255,255,0.25)]"
                 />
               </Link>
             </div>

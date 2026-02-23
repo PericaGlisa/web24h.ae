@@ -40,8 +40,8 @@ export function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 relative ${
         scrolled
-          ? "bg-slate-950/90 backdrop-blur-2xl border-b border-white/5 py-3 shadow-[0_20px_80px_rgba(0,0,0,0.6)]"
-          : "bg-transparent py-8"
+          ? "bg-slate-950 border-b border-white/5 py-3 shadow-[0_20px_80px_rgba(0,0,0,0.6)]"
+          : "bg-slate-950 py-8"
       }`}
     >
       <div className="absolute inset-0 pointer-events-none">
@@ -54,7 +54,7 @@ export function Navbar() {
             <img
               src="/images/website24h-logo.png"
               alt="Website 24h"
-              className="h-full w-auto max-w-[170px] sm:max-w-[200px] lg:max-w-[230px] object-contain"
+              className="h-full w-auto max-w-[170px] sm:max-w-[200px] lg:max-w-[230px] object-contain brightness-110 contrast-110 drop-shadow-[0_6px_20px_rgba(255,255,255,0.25)]"
             />
           </div>
         </Link>
@@ -95,7 +95,7 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="bg-slate-950 border-white/5 text-white p-0 [&>button]:hidden"
+              className="bg-slate-950 border-white/5 text-white p-0 [&>button]:hidden overflow-hidden"
             >
               <div className="h-full flex flex-col">
                 <div className="px-6 pt-6 pb-6 border-b border-white/10 bg-slate-950/80 backdrop-blur-2xl">
@@ -110,7 +110,7 @@ export function Navbar() {
                           <img
                             src="/images/website24h-logo.png"
                             alt="Website 24h"
-                            className="h-full w-auto max-w-[170px] object-contain"
+                            className="h-full w-auto max-w-[170px] object-contain brightness-125 contrast-125 drop-shadow-[0_10px_28px_rgba(255,255,255,0.35)]"
                           />
                         </div>
                       </Link>
@@ -132,7 +132,7 @@ export function Navbar() {
                   </SheetHeader>
                 </div>
 
-                <div className="flex-1 px-6 py-8">
+                <div className="flex-1 px-6 py-8 overflow-y-auto">
                   <div className="grid gap-4">
                     {[
                       { label: "FEATURES", href: "/features", detail: "Signature capabilities" },
@@ -153,8 +153,9 @@ export function Navbar() {
                       </Link>
                     ))}
                   </div>
-
-                  <div className="mt-8 grid gap-3">
+                </div>
+                <div className="px-6 py-6 border-t border-white/10 bg-slate-950/80">
+                  <div className="grid gap-3">
                     <Link
                       href="/private-intake"
                       onClick={() => setMobileOpen(false)}
