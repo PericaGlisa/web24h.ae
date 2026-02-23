@@ -56,15 +56,15 @@ export default function PricingPage() {
 
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-5xl">
-              <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/10 text-white/90 text-xs font-bold tracking-[0.3em] uppercase mb-8 backdrop-blur-xl">
+              <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/15 text-white/90 text-xs font-bold tracking-[0.3em] uppercase mb-8 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,210,184,0.12)]">
                 <Sparkles className="w-3.5 h-3.5" />
                 Executive Investment
               </div>
-              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl font-black leading-[0.95] 2xl:leading-[0.9] tracking-tighter text-white mb-6 sm:mb-8">
+              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl font-black leading-[0.95] 2xl:leading-[0.9] tracking-tighter text-white mb-6 sm:mb-8 drop-shadow-[0_18px_60px_rgba(0,0,0,0.65)]">
                 CLARITY <br />
                 <span className="text-gradient-elite italic inline-block pr-3 sm:pr-2">ON VALUE.</span>
               </h1>
-              <p className="text-base sm:text-lg md:text-2xl text-slate-400 max-w-3xl font-light leading-relaxed">
+              <p className="text-base sm:text-lg md:text-2xl text-slate-300 max-w-3xl font-light leading-relaxed">
                 Transparent, fixed pricing with premium delivery. Pick the engagement size that fits your launch scope.
               </p>
             </div>
@@ -77,13 +77,13 @@ export default function PricingPage() {
               {tiers.map((tier) => (
                 <div
                   key={tier.name}
-                  className={`surface-elite p-6 sm:p-8 flex flex-col ${
-                    tier.highlight ? "border border-primary/40 shadow-[0_40px_140px_rgba(0,210,184,0.2)]" : ""
+                  className={`surface-elite p-6 sm:p-8 flex flex-col border border-white/10 bg-slate-950/70 backdrop-blur-xl shadow-[0_28px_90px_rgba(0,0,0,0.45)] ${
+                    tier.highlight ? "border-primary/40 shadow-[0_40px_140px_rgba(0,210,184,0.2)]" : ""
                   }`}
                 >
                   <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500 font-bold mb-3">{tier.name}</div>
                   <div className="text-3xl sm:text-4xl font-black text-white mb-2">{tier.price}</div>
-                  <p className="text-slate-400 text-sm sm:text-base font-light leading-relaxed mb-6">{tier.description}</p>
+                  <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed mb-6">{tier.description}</p>
                   <div className="space-y-3 mb-8 flex-1">
                     {tier.features.map((feature) => (
                       <div key={feature} className="flex items-start gap-3">
@@ -97,7 +97,7 @@ export default function PricingPage() {
                   <Link href={`/private-intake?package=${tier.name.toLowerCase()}`}>
                     <Button
                       onClick={() => window.sessionStorage.setItem("selectedPackage", tier.name)}
-                      className="h-12 sm:h-14 font-black text-sm sm:text-base transition-all duration-500 bg-white/5 hover:bg-white/10 text-white border border-white/10"
+                      className="h-12 sm:h-14 font-black text-sm sm:text-base transition-all duration-500 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-2xl"
                     >
                       BEGIN ENGAGEMENT <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
@@ -107,7 +107,7 @@ export default function PricingPage() {
             </div>
 
             <div className="mt-12 sm:mt-16 grid lg:grid-cols-2 gap-6">
-              <div className="surface-elite p-6 sm:p-8">
+              <div className="surface-elite p-6 sm:p-8 border border-white/10 bg-slate-950/70 backdrop-blur-xl shadow-[0_24px_80px_rgba(0,0,0,0.4)]">
                 <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500 font-bold mb-4">Included in every tier</div>
                 <div className="space-y-3">
                   {["NDA-first workflow", "Executive SLA response", "Milestone sign-off", "Post-launch QA"].map((item) => (
@@ -120,7 +120,7 @@ export default function PricingPage() {
                   ))}
                 </div>
               </div>
-              <div className="surface-elite p-6 sm:p-8">
+              <div className="surface-elite p-6 sm:p-8 border border-white/10 bg-slate-950/70 backdrop-blur-xl shadow-[0_24px_80px_rgba(0,0,0,0.4)]">
                 <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500 font-bold mb-4">Optional expansions</div>
                 <div className="space-y-3">
                   {["Additional pages", "Copy refinement", "Automation flows", "Ongoing optimization"].map((item) => (
@@ -139,16 +139,16 @@ export default function PricingPage() {
 
         <section className="py-20 sm:py-28 bg-slate-950">
           <div className="container mx-auto px-6">
-            <div className="surface-elite p-8 sm:p-12 lg:p-16 text-center">
+            <div className="surface-elite p-8 sm:p-12 lg:p-16 text-center border border-white/10 bg-slate-950/70 backdrop-blur-xl shadow-[0_30px_120px_rgba(0,0,0,0.5)]">
               <div className="text-primary text-xs font-bold tracking-[0.4em] uppercase mb-4">Private intake</div>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white mb-5">
                 Lock the scope. Secure the slot.
               </h2>
-              <p className="text-slate-400 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto mb-8">
+              <p className="text-slate-300 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto mb-8">
                 We confirm your timeline, integrations, and goals before we start. That is how we ship premium work in 24 hours.
               </p>
               <Link href="/private-intake">
-                <Button size="lg" className="h-14 sm:h-16 px-10 sm:px-12 text-base sm:text-lg bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_0_60px_rgba(0,210,184,0.45)] transition-all hover:scale-[1.04]">
+                <Button size="lg" className="h-14 sm:h-16 px-10 sm:px-12 text-base sm:text-lg bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_0_60px_rgba(0,210,184,0.45)] transition-all hover:scale-[1.04] rounded-2xl">
                   REQUEST PRIVATE INTAKE <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>

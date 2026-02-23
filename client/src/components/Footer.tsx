@@ -24,7 +24,7 @@ export function Footer() {
             <p className="text-slate-300 text-sm leading-relaxed">
               A private digital studio delivering premium websites in 24 hours with speed, clarity, and precision.
             </p>
-            <div className="mt-4 text-xs text-slate-500">References and case notes available under NDA.</div>
+            <div className="mt-4 text-xs text-slate-500">References available under NDA.</div>
           </div>
           
           <div className="rounded-2xl border border-white/5 bg-white/5 p-6 sm:p-7">
@@ -45,11 +45,6 @@ export function Footer() {
                   Investment
                 </Link>
               </li>
-              <li>
-                <Link href="/case-notes" className="hover:text-primary transition-colors">
-                  Case Notes
-                </Link>
-              </li>
             </ul>
           </div>
           
@@ -59,11 +54,6 @@ export function Footer() {
               <li>
                 <Link href="/about" className="hover:text-primary transition-colors">
                   About
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers" className="hover:text-primary transition-colors">
-                  Careers
                 </Link>
               </li>
               <li>
@@ -82,9 +72,19 @@ export function Footer() {
           <div className="rounded-2xl border border-white/5 bg-white/5 p-6 sm:p-7">
             <h4 className="text-[11px] uppercase tracking-[0.35em] text-slate-500 font-bold mb-5">Contact</h4>
             <ul className="space-y-4 text-sm text-slate-300">
-              <li className="flex items-center gap-3"><Mail className="w-4 h-4 text-primary" /> hello@website24h.com</li>
-              <li className="flex items-center gap-3"><Phone className="w-4 h-4 text-primary" /> +1 (555) 000-0000</li>
-              <li className="flex items-center gap-3"><MapPin className="w-4 h-4 text-primary" /> San Francisco, CA</li>
+              <li className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-primary" />
+                <a className="hover:text-primary transition-colors" href="mailto:hello@web24h.ae">
+                  hello@web24h.ae
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-primary" />
+                <a className="hover:text-primary transition-colors" href="tel:+971589577819">
+                  +971589577819
+                </a>
+              </li>
+              <li className="flex items-center gap-3"><MapPin className="w-4 h-4 text-primary" /> Dubai, UAE</li>
             </ul>
           </div>
         </div>

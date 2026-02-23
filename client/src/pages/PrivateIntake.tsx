@@ -60,7 +60,7 @@ export default function PrivateIntake() {
         ? lines.join("\n")
         : "Hello, I would like to request a Private Intake slot.";
 
-    return `mailto:hello@website24h.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return `mailto:hello@web24h.ae?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }, [
     company,
     email,
@@ -85,22 +85,22 @@ export default function PrivateIntake() {
 
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-6xl mx-auto">
-              <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/10 text-white/90 text-xs font-bold tracking-[0.3em] uppercase mb-10 backdrop-blur-xl">
+              <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/15 text-white/90 text-xs font-bold tracking-[0.3em] uppercase mb-10 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,210,184,0.12)]">
                 <Sparkles className="w-3.5 h-3.5" />
                 Private Intake
               </div>
 
-              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl font-black leading-[0.95] 2xl:leading-[0.9] tracking-tighter text-white mb-6 sm:mb-8">
+              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl font-black leading-[0.95] 2xl:leading-[0.9] tracking-tighter text-white mb-6 sm:mb-8 drop-shadow-[0_18px_60px_rgba(0,0,0,0.65)]">
                 SECURE A <br />
                 <span className="text-gradient-elite italic inline-block pr-3 sm:pr-2">PRIVATE SLOT.</span>
               </h1>
 
-              <p className="text-base sm:text-lg md:text-2xl text-slate-400 mb-10 sm:mb-12 max-w-3xl font-light leading-relaxed">
+              <p className="text-base sm:text-lg md:text-2xl text-slate-300 mb-10 sm:mb-12 max-w-3xl font-light leading-relaxed">
                 The intake keeps our delivery fast and the outcome premium. Share the essentials and we respond with availability, scope alignment, and next steps.
               </p>
 
               <div className="grid lg:grid-cols-5 gap-6 lg:gap-8">
-                <div className="lg:col-span-2 surface-elite p-6 sm:p-8">
+                <div className="lg:col-span-2 surface-elite p-6 sm:p-8 border border-white/10 bg-slate-950/70 backdrop-blur-xl shadow-[0_28px_90px_rgba(0,0,0,0.45)]">
                   <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500 font-bold mb-4">
                     Response standards
                   </div>
@@ -111,7 +111,7 @@ export default function PrivateIntake() {
                       </div>
                       <div>
                         <div className="font-bold text-white">Fast confirmation</div>
-                        <div className="text-slate-400 font-light">We confirm availability and the delivery window quickly.</div>
+                        <div className="text-slate-300 font-light">We confirm availability and the delivery window quickly.</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
@@ -120,7 +120,7 @@ export default function PrivateIntake() {
                       </div>
                       <div>
                         <div className="font-bold text-white">Scope lock</div>
-                        <div className="text-slate-400 font-light">We define what ships in the 24h sprint, no drift.</div>
+                        <div className="text-slate-300 font-light">We define what ships in the 24h sprint, no drift.</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
@@ -129,7 +129,7 @@ export default function PrivateIntake() {
                       </div>
                       <div>
                         <div className="font-bold text-white">Private workflow</div>
-                        <div className="text-slate-400 font-light">NDA first, then a focused brief and decision path.</div>
+                        <div className="text-slate-300 font-light">NDA first, then a focused brief and decision path.</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
@@ -138,7 +138,7 @@ export default function PrivateIntake() {
                       </div>
                       <div>
                         <div className="font-bold text-white">Decision cadence</div>
-                        <div className="text-slate-400 font-light">We set approval checkpoints to keep velocity high.</div>
+                        <div className="text-slate-300 font-light">We set approval checkpoints to keep velocity high.</div>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
@@ -147,12 +147,12 @@ export default function PrivateIntake() {
                       </div>
                       <div>
                         <div className="font-bold text-white">Asset readiness</div>
-                        <div className="text-slate-400 font-light">We validate logos, copy, and links before kickoff.</div>
+                        <div className="text-slate-300 font-light">We validate logos, copy, and links before kickoff.</div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <div className="mt-6 rounded-2xl border border-white/15 bg-slate-950/70 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.35)]">
                     <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500 font-bold mb-3">Response window</div>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
@@ -170,14 +170,14 @@ export default function PrivateIntake() {
 
                   <div className="text-xs text-slate-500 leading-relaxed">
                     Prefer email? Write to{" "}
-                    <a className="text-primary hover:text-cyan-400 transition-colors" href="mailto:hello@website24h.com">
-                      hello@website24h.com
+                    <a className="text-primary hover:text-cyan-400 transition-colors" href="mailto:hello@web24h.ae">
+                      hello@web24h.ae
                     </a>
                     .
                   </div>
                 </div>
 
-                <div className="lg:col-span-3 surface-elite p-6 sm:p-8">
+                <div className="lg:col-span-3 surface-elite p-6 sm:p-8 border border-white/10 bg-slate-950/70 backdrop-blur-xl shadow-[0_28px_90px_rgba(0,0,0,0.45)]">
                   <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500 font-bold mb-4">
                     Intake briefing
                   </div>
@@ -196,7 +196,7 @@ export default function PrivateIntake() {
                           value={fullName}
                           onChange={(e) => setFullName(e.target.value)}
                           placeholder="Your name"
-                          className="bg-white/5 border-white/10 text-white placeholder:text-slate-500"
+                          className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-primary/60 focus:ring-1 focus:ring-primary/30"
                         />
                       </div>
                       <div>
@@ -206,7 +206,7 @@ export default function PrivateIntake() {
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="you@company.com"
                           type="email"
-                          className="bg-white/5 border-white/10 text-white placeholder:text-slate-500"
+                          className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-primary/60 focus:ring-1 focus:ring-primary/30"
                         />
                       </div>
                     </div>
@@ -218,7 +218,7 @@ export default function PrivateIntake() {
                           value={company}
                           onChange={(e) => setCompany(e.target.value)}
                           placeholder="Company or project"
-                          className="bg-white/5 border-white/10 text-white placeholder:text-slate-500"
+                          className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-primary/60 focus:ring-1 focus:ring-primary/30"
                         />
                       </div>
                       <div>
@@ -226,8 +226,8 @@ export default function PrivateIntake() {
                         <Input
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
-                          placeholder="+1 555 000 0000"
-                          className="bg-white/5 border-white/10 text-white placeholder:text-slate-500"
+                          placeholder="+971589577819"
+                          className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-primary/60 focus:ring-1 focus:ring-primary/30"
                         />
                       </div>
                     </div>
@@ -239,13 +239,13 @@ export default function PrivateIntake() {
                           value={website}
                           onChange={(e) => setWebsite(e.target.value)}
                           placeholder="https://"
-                          className="bg-white/5 border-white/10 text-white placeholder:text-slate-500"
+                          className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-primary/60 focus:ring-1 focus:ring-primary/30"
                         />
                       </div>
                       <div>
                         <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold mb-2">Selected package</div>
                         <Select value={packageTier} onValueChange={setPackageTier}>
-                          <SelectTrigger className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 h-11">
+                          <SelectTrigger className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 h-11 focus:border-primary/60 focus:ring-1 focus:ring-primary/30">
                             <SelectValue placeholder="Choose package" />
                           </SelectTrigger>
                           <SelectContent>
@@ -261,7 +261,7 @@ export default function PrivateIntake() {
                       <div>
                         <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold mb-2">Launch window</div>
                         <Select value={launchWindow} onValueChange={setLaunchWindow}>
-                          <SelectTrigger className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 h-11">
+                          <SelectTrigger className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 h-11 focus:border-primary/60 focus:ring-1 focus:ring-primary/30">
                             <SelectValue placeholder="Select timing" />
                           </SelectTrigger>
                           <SelectContent>
@@ -300,7 +300,7 @@ export default function PrivateIntake() {
                         value={goal}
                         onChange={(e) => setGoal(e.target.value)}
                         placeholder="Launch, conversion, repositioning, lead capture"
-                        className="bg-white/5 border-white/10 text-white placeholder:text-slate-500"
+                        className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-primary/60 focus:ring-1 focus:ring-primary/30"
                       />
                     </div>
 
@@ -310,13 +310,13 @@ export default function PrivateIntake() {
                         value={notes}
                         onChange={(e) => setNotes(e.target.value)}
                         placeholder="Anything that helps us move fast: pages, integrations, assets, constraints"
-                        className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 min-h-[140px]"
+                        className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 min-h-[140px] focus:border-primary/60 focus:ring-1 focus:ring-primary/30"
                       />
                     </div>
 
                     <Button
                       type="submit"
-                      className="w-full h-14 sm:h-16 text-base sm:text-lg font-black bg-primary hover:bg-cyan-400 text-slate-950 shadow-[0_24px_60px_rgba(0,210,184,0.35)] transition-all hover:scale-[1.02] active:scale-[0.98] group"
+                      className="w-full h-14 sm:h-16 text-base sm:text-lg font-black bg-primary hover:bg-cyan-400 text-slate-950 shadow-[0_24px_60px_rgba(0,210,184,0.35)] transition-all hover:scale-[1.02] active:scale-[0.98] group rounded-2xl"
                     >
                       SUBMIT PRIVATE INTAKE <ArrowUpRight className="ml-3 w-6 h-6 group-hover:rotate-45 transition-transform" />
                     </Button>

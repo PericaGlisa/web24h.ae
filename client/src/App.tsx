@@ -12,9 +12,7 @@ import PrivateIntake from "@/pages/PrivateIntake";
 import Capabilities from "@/pages/Capabilities";
 import Method from "@/pages/Method";
 import Investment from "@/pages/Investment";
-import CaseNotes from "@/pages/CaseNotes";
 import About from "@/pages/About";
-import Careers from "@/pages/Careers";
 import Legal from "@/pages/Legal";
 import Privacy from "@/pages/Privacy";
 import NotFound from "@/pages/not-found";
@@ -30,9 +28,7 @@ function Router() {
       <Route path="/capabilities" component={Capabilities} />
       <Route path="/method" component={Method} />
       <Route path="/investment" component={Investment} />
-      <Route path="/case-notes" component={CaseNotes} />
       <Route path="/about" component={About} />
-      <Route path="/careers" component={Careers} />
       <Route path="/legal" component={Legal} />
       <Route path="/privacy" component={Privacy} />
       <Route component={NotFound} />

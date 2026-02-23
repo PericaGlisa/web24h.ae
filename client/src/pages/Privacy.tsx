@@ -30,8 +30,15 @@ const sections = [
   },
   {
     title: "Your rights",
-    content:
-      "You may request access, correction, or deletion of your information by contacting us at hello@website24h.com.",
+    content: (
+      <>
+        You may request access, correction, or deletion of your information by contacting us at{" "}
+        <a className="text-primary hover:text-cyan-400 transition-colors" href="mailto:hello@web24h.ae">
+          hello@web24h.ae
+        </a>
+        .
+      </>
+    ),
   },
 ];
 
@@ -47,15 +54,15 @@ export default function Privacy() {
 
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-5xl">
-              <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/10 text-white/90 text-xs font-bold tracking-[0.3em] uppercase mb-8 backdrop-blur-xl">
+              <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/15 text-white/90 text-xs font-bold tracking-[0.3em] uppercase mb-8 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,210,184,0.12)]">
                 <Sparkles className="w-3.5 h-3.5" />
                 Privacy
               </div>
-              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl font-black leading-[0.95] 2xl:leading-[0.9] tracking-tighter text-white mb-6 sm:mb-8">
+              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl font-black leading-[0.95] 2xl:leading-[0.9] tracking-tighter text-white mb-6 sm:mb-8 drop-shadow-[0_18px_60px_rgba(0,0,0,0.65)]">
                 PRIVACY <br />
                 <span className="text-gradient-elite italic inline-block pr-3 sm:pr-2">OVERVIEW.</span>
               </h1>
-              <p className="text-base sm:text-lg md:text-2xl text-slate-400 max-w-3xl font-light leading-relaxed">
+              <p className="text-base sm:text-lg md:text-2xl text-slate-300 max-w-3xl font-light leading-relaxed">
                 A concise summary of how we collect, use, and protect information. Full details are available upon request.
               </p>
             </div>
@@ -66,9 +73,9 @@ export default function Privacy() {
           <div className="container mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-6">
               {sections.map((section) => (
-                <div key={section.title} className="surface-elite p-6 sm:p-8">
+                <div key={section.title} className="surface-elite p-6 sm:p-8 border border-white/10 bg-slate-950/70 backdrop-blur-xl shadow-[0_24px_80px_rgba(0,0,0,0.4)]">
                   <div className="text-lg sm:text-xl font-black text-white mb-3">{section.title}</div>
-                  <p className="text-slate-400 text-sm sm:text-base font-light leading-relaxed">{section.content}</p>
+                  <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed">{section.content}</p>
                 </div>
               ))}
             </div>
