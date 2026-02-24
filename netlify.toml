@@ -4,3 +4,11 @@ publish = "dist/public"
 
 [build.environment]
 NODE_VERSION = "20"
+
+[functions]
+directory = "netlify/functions"
+
+[[redirects]]
+from = "/api/private-intake"
+to = "/.netlify/functions/private-intake"
+status = 200

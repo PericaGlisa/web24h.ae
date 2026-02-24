@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowUpRight, CheckCircle2, Clock, ShieldCheck, Sparkles } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 export default function PrivateIntake() {
   const normalizePackage = (value: string) => {
@@ -37,42 +37,11 @@ export default function PrivateIntake() {
   const [goal, setGoal] = useState("");
   const [notes, setNotes] = useState("");
 
-  const mailtoHref = useMemo(() => {
-    const subject = "Private Intake Request";
-    const lines = [
-      ["Name", fullName],
-      ["Email", email],
-      ["Company", company],
-      ["Phone", phone],
-      ["Website", website],
-      ["Package", packageTier],
-      ["Launch window", launchWindow],
-      ["Preferred start date", preferredStartPreset],
-      ["Goal", goal],
-      ["Notes", notes],
-    ]
-      .map(([label, value]) => [label, String(value).trim()] as const)
-      .filter(([, value]) => value.length > 0)
-      .map(([label, value]) => `${label}: ${value}`);
-
-    const body =
-      lines.length > 0
-        ? lines.join("\n")
-        : "Hello, I would like to request a Private Intake slot.";
-
-    return `mailto:hello@web24h.ae?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }, [
-    company,
-    email,
-    fullName,
-    goal,
-    launchWindow,
-    notes,
-    packageTier,
-    phone,
-    preferredStartPreset,
-    website,
-  ]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitState, setSubmitState] = useState<{ status: "idle" | "success" | "error"; message: string }>({
+    status: "idle",
+    message: "",
+  });
 
   return (
     <div className="min-h-screen font-sans text-slate-900 dark:text-slate-50 selection:bg-primary/30">
@@ -183,9 +152,51 @@ export default function PrivateIntake() {
                   </div>
 
                   <form
-                    onSubmit={(e) => {
+                    onSubmit={async (e) => {
                       e.preventDefault();
-                      window.location.href = mailtoHref;
+                      if (isSubmitting) return;
+                      setIsSubmitting(true);
+                      setSubmitState({ status: "idle", message: "" });
+
+                      try {
+                        const isLocalhost =
+                          typeof window !== "undefined" &&
+                          (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
+                        const endpoint = isLocalhost ? "/api/private-intake" : "/.netlify/functions/private-intake";
+
+                        const response = await fetch(endpoint, {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({
+                            fullName,
+                            email,
+                            company,
+                            phone,
+                            website,
+                            packageTier,
+                            launchWindow,
+                            preferredStartPreset,
+                            goal,
+                            notes,
+                          }),
+                        });
+
+                        if (!response.ok) {
+                          throw new Error("Request failed");
+                        }
+
+                        setSubmitState({
+                          status: "success",
+                          message: "Hvala. Potvrda je poslata na vaš mejl i javljamo se u najkraćem roku.",
+                        });
+                      } catch (error) {
+                        setSubmitState({
+                          status: "error",
+                          message: "Došlo je do greške. Molimo pokušajte ponovo ili pišite direktno na email.",
+                        });
+                      } finally {
+                        setIsSubmitting(false);
+                      }
                     }}
                     className="space-y-5"
                   >
@@ -316,14 +327,22 @@ export default function PrivateIntake() {
 
                     <Button
                       type="submit"
-                      className="w-full h-14 sm:h-16 text-base sm:text-lg font-black bg-primary hover:bg-cyan-400 text-slate-950 shadow-[0_24px_60px_rgba(0,210,184,0.35)] transition-all hover:scale-[1.02] active:scale-[0.98] group rounded-2xl"
+                      disabled={isSubmitting}
+                      className="w-full h-14 sm:h-16 text-base sm:text-lg font-black bg-primary hover:bg-cyan-400 text-slate-950 shadow-[0_24px_60px_rgba(0,210,184,0.35)] transition-all hover:scale-[1.02] active:scale-[0.98] group rounded-2xl disabled:opacity-70 disabled:cursor-not-allowed"
                     >
-                      SUBMIT PRIVATE INTAKE <ArrowUpRight className="ml-3 w-6 h-6 group-hover:rotate-45 transition-transform" />
+                      {isSubmitting ? "SENDING REQUEST" : "SUBMIT PRIVATE INTAKE"}{" "}
+                      <ArrowUpRight className="ml-3 w-6 h-6 group-hover:rotate-45 transition-transform" />
                     </Button>
 
-                    <div className="text-xs text-slate-500 leading-relaxed">
-                      Submitting opens your email client with a prefilled message. We do not store form data on this website.
-                    </div>
+                    {submitState.status !== "idle" && (
+                      <div
+                        className={`text-xs leading-relaxed ${
+                          submitState.status === "success" ? "text-emerald-300" : "text-rose-300"
+                        }`}
+                      >
+                        {submitState.message}
+                      </div>
+                    )}
                   </form>
                 </div>
               </div>
