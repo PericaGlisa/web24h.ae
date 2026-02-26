@@ -187,12 +187,12 @@ export default function PrivateIntake() {
 
                         setSubmitState({
                           status: "success",
-                          message: "Hvala. Potvrda je poslata na vaš mejl i javljamo se u najkraćem roku.",
+                          message: "Thank you. A confirmation email has been sent and we will reply shortly.",
                         });
                       } catch (error) {
                         setSubmitState({
                           status: "error",
-                          message: "Došlo je do greške. Molimo pokušajte ponovo ili pišite direktno na email.",
+                          message: "Something went wrong. Please try again or email us directly.",
                         });
                       } finally {
                         setIsSubmitting(false);

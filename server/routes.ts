@@ -64,24 +64,24 @@ export async function registerRoutes(
     const rows = fields
       .map(
         ([label, value]) =>
-          `<tr><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;font-weight:600;color:#0F172A;">${label}</td><td style="padding:10px 12px;border-bottom:1px solid #E5E7EB;color:#1F2937;">${value}</td></tr>`,
+          `<tr><td style="padding:10px 12px;border-bottom:1px solid #0F172A;font-weight:600;color:#E2E8F0;">${label}</td><td style="padding:10px 12px;border-bottom:1px solid #0F172A;color:#CBD5F5;">${value}</td></tr>`,
       )
       .join("");
 
     const safeFullName = escapeHtml(fullName);
     const subjectName = fullName.replace(/[\r\n]+/g, " ").trim();
     const adminHtml = `
-      <div style="font-family: 'Inter', Arial, sans-serif; background:#0B0F1A; padding:32px;">
-        <div style="max-width:640px;margin:0 auto;background:#FFFFFF;border-radius:20px;overflow:hidden;border:1px solid #E2E8F0;">
-          <div style="padding:28px 32px;background:linear-gradient(135deg,#0F172A,#111827);color:#FFFFFF;">
-            <div style="font-size:12px;letter-spacing:0.3em;text-transform:uppercase;color:#94A3B8;font-weight:700;">Private Intake</div>
-            <h1 style="margin:10px 0 0;font-size:26px;line-height:1.2;">New intake submitted</h1>
-            <p style="margin:8px 0 0;color:#CBD5F5;font-size:14px;">Captured from web24h.ae intake form.</p>
+      <div style="font-family: 'Inter', Arial, sans-serif; background:#070B14; padding:32px;">
+        <div style="max-width:640px;margin:0 auto;background:#0B1120;border-radius:20px;overflow:hidden;border:1px solid #101C2C;">
+          <div style="padding:28px 32px;background:radial-gradient(circle at top,#0F172A 0%,#0B1120 55%,#070B14 100%);color:#FFFFFF;">
+            <div style="font-size:12px;letter-spacing:0.35em;text-transform:uppercase;color:#7DD3FC;font-weight:700;">Private Intake</div>
+            <h1 style="margin:12px 0 0;font-size:26px;line-height:1.2;">New intake submitted</h1>
+            <p style="margin:8px 0 0;color:#94A3B8;font-size:14px;">Captured from web24h.ae</p>
           </div>
-          <div style="padding:20px 24px;">
+          <div style="padding:20px 24px;background:#0B1120;">
             <table style="width:100%;border-collapse:collapse;font-size:14px;">${rows}</table>
           </div>
-          <div style="padding:20px 24px;background:#F8FAFC;font-size:13px;color:#475569;">
+          <div style="padding:20px 24px;background:#0F172A;font-size:13px;color:#94A3B8;">
             Reply directly to this email to reach the requester.
           </div>
         </div>
@@ -89,23 +89,23 @@ export async function registerRoutes(
     `;
 
     const userHtml = `
-      <div style="font-family: 'Inter', Arial, sans-serif; background:#0B0F1A; padding:32px;">
-        <div style="max-width:640px;margin:0 auto;background:#FFFFFF;border-radius:20px;overflow:hidden;border:1px solid #E2E8F0;">
-          <div style="padding:28px 32px;background:linear-gradient(135deg,#0EA5E9,#10B981);color:#0B1120;">
-            <div style="font-size:12px;letter-spacing:0.3em;text-transform:uppercase;color:#0B1120;font-weight:800;">Website 24h</div>
-            <h1 style="margin:10px 0 0;font-size:26px;line-height:1.2;">Your intake is confirmed</h1>
-            <p style="margin:8px 0 0;color:#0B1120;font-size:14px;">We will reply shortly with availability and next steps.</p>
+      <div style="font-family: 'Inter', Arial, sans-serif; background:#070B14; padding:32px;">
+        <div style="max-width:640px;margin:0 auto;background:#0B1120;border-radius:20px;overflow:hidden;border:1px solid #101C2C;">
+          <div style="padding:28px 32px;background:linear-gradient(135deg,#0EA5E9,#22D3EE);color:#04101B;">
+            <div style="font-size:12px;letter-spacing:0.35em;text-transform:uppercase;color:#04101B;font-weight:800;">Website 24h</div>
+            <h1 style="margin:12px 0 0;font-size:26px;line-height:1.2;">Your intake is confirmed</h1>
+            <p style="margin:8px 0 0;color:#04101B;font-size:14px;">We will reply shortly with availability and next steps.</p>
           </div>
-          <div style="padding:24px 28px;color:#0F172A;">
+          <div style="padding:24px 28px;color:#E2E8F0;">
               <p style="font-size:15px;line-height:1.6;margin:0 0 14px;">
               Hi ${safeFullName}, thank you for sharing your project details. We treat every intake as a private engagement and respond fast.
             </p>
-            <div style="background:#F8FAFC;border-radius:16px;padding:16px 18px;border:1px solid #E2E8F0;">
-              <div style="font-size:12px;letter-spacing:0.25em;text-transform:uppercase;color:#64748B;font-weight:700;margin-bottom:10px;">Next step</div>
-              <div style="font-size:14px;color:#1F2937;">Expect a response within 15 minutes with the delivery window and scope confirmation.</div>
+            <div style="background:#0F172A;border-radius:16px;padding:16px 18px;border:1px solid #1E293B;">
+              <div style="font-size:12px;letter-spacing:0.25em;text-transform:uppercase;color:#7DD3FC;font-weight:700;margin-bottom:10px;">Next step</div>
+              <div style="font-size:14px;color:#CBD5F5;">Expect a response within 15 minutes with the delivery window and scope confirmation.</div>
             </div>
           </div>
-          <div style="padding:20px 28px;background:#0F172A;color:#E2E8F0;font-size:12px;">
+          <div style="padding:20px 28px;background:#0B1120;color:#94A3B8;font-size:12px;border-top:1px solid #101C2C;">
             If you have urgent additions, reply to this email.
           </div>
         </div>
