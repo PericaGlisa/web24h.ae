@@ -4,47 +4,47 @@ import { FileText, Palette, Code, Rocket, ChevronRight } from "lucide-react";
 const steps = [
   {
     id: "01",
-    title: "EXECUTIVE BRIEF",
-    description: "We compress your goals, assets, and offer into a decisive blueprint. A 15-minute intake locks scope and success metrics.",
+    title: "FAST BRIEF",
+    description: "We capture your goals, your offer, and what matters most in a short call so we can move fast with no surprises.",
     icon: FileText,
     time: "02H",
     tag: "Brief",
     durationHours: 2,
-    deliverables: ["Scope + success metrics", "Offer + page map", "Brand/assets checklist (logo, copy, references)"],
-    gate: "Brief locked"
+    deliverables: ["Clear goals + must-haves", "Simple page outline", "Asset checklist (logo, text, examples)"],
+    gate: "Brief approved"
   },
   {
     id: "02",
-    title: "VISUAL DIRECTION",
-    description: "We establish the brand system, hero story, and conversion path. You approve the direction before we build.",
+    title: "LOOK & FEEL",
+    description: "We set the style, the key message, and the structure. You approve the look before we build.",
     icon: Palette,
     time: "06H",
     tag: "Design",
     durationHours: 6,
-    deliverables: ["Hero + section wire", "Light brand kit (color, type, components)", "CTA + funnel path"],
-    gate: "Direction approved"
+    deliverables: ["Headline + section flow", "Simple brand look (colors, type, buttons)", "Clear call-to-action"],
+    gate: "Look approved"
   },
   {
     id: "03",
-    title: "BUILD & INTEGRATE",
-    description: "We ship the site, wire analytics, and integrate your stack. Performance and responsiveness are enforced by default.",
+    title: "BUILD & CONNECT",
+    description: "We build the site, connect your forms and tools, and make it fast and mobile-ready.",
     icon: Code,
     time: "10H",
     tag: "Build",
     durationHours: 10,
-    deliverables: ["Pages + components built", "Analytics + events wired", "Forms/CRM/booking integrated"],
-    gate: "QA pass"
+    deliverables: ["Website pages built", "Visitor insights turned on", "Forms and booking connected"],
+    gate: "Quality checked"
   },
   {
     id: "04",
-    title: "LAUNCH & VERIFY",
-    description: "We deploy globally, run QA, and validate key flows. You get a ready-to-scale site in 24 hours.",
+    title: "LAUNCH DAY",
+    description: "We publish the site, test the key actions, and hand everything over so you can start selling.",
     icon: Rocket,
     time: "06H",
     tag: "Launch",
     durationHours: 6,
-    deliverables: ["Global deploy + SSL", "Mobile + 4K checks", "Handover + next steps"],
-    gate: "Launch confirmed"
+    deliverables: ["Live website + secure hosting", "Mobile checks", "Handover + next steps"],
+    gate: "Live and confirmed"
   }
 ];
 
@@ -61,51 +61,51 @@ export function ProcessSteps() {
   ).items;
 
   return (
-    <section id="process" className="py-20 sm:py-28 lg:py-32 relative bg-slate-950 overflow-hidden">
-      <div className="absolute inset-0 bg-linear-to-b from-slate-900/70 via-slate-950 to-slate-950 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] sm:w-[700px] sm:h-[700px] lg:w-[900px] lg:h-[900px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
+    <section id="process" className="py-24 sm:py-28 lg:py-32 relative bg-slate-950 overflow-hidden">
+      <div className="absolute inset-0 bg-linear-to-b from-slate-950 via-slate-950 to-black/60 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] sm:w-[700px] sm:h-[700px] lg:w-[900px] lg:h-[900px] bg-primary/10 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-5 sm:gap-6 items-start">
-          <div className="surface-elite rounded-[2rem] p-6 sm:p-8 lg:p-10 lg:col-span-7">
+          <div className="rounded-[2rem] p-6 sm:p-8 lg:p-10 lg:col-span-7 border border-white/10 bg-slate-950/70 backdrop-blur-xl shadow-[0_40px_120px_rgba(0,0,0,0.5)]">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-[10px] font-bold tracking-[0.3em] uppercase mb-6"
+              className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-[10px] font-bold tracking-[0.3em] uppercase mb-6"
             >
-              White-Glove Delivery
+              24-Hour Sprint
             </motion.div>
             <h2 className="font-display text-3xl sm:text-5xl md:text-7xl font-black text-white mb-6 sm:mb-8 leading-[0.98]">
-              THE 24-HOUR <br />
-              <span className="text-gradient-elite">VELOCITY SPRINT.</span>
+              YOUR WEBSITE <br />
+              <span className="text-gradient-elite">LIVE IN 24 HOURS.</span>
             </h2>
             <p className="text-slate-300 font-light leading-relaxed text-sm sm:text-base max-w-3xl">
-              One focused day from brief to launch with fixed milestones, time-boxed execution, and clear approval gates. You know what we need, what you approve, and what you receive at every checkpoint.
+              One focused day from first call to live website, with clear steps and quick approvals. You always know what happens next.
             </p>
             <p className="text-slate-300 font-light leading-relaxed text-sm sm:text-base max-w-3xl mt-4">
-              If you have a logo or brandbook, we implement it. If not, we craft a light brand kit tailored to the site so everything ships cohesive.
+              If you already have a logo, we use it. If not, we create a clean look that fits your business.
             </p>
           </div>
 
           <div className="lg:col-span-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-            {[
-              { label: "BRIEF LOCKED", value: "Intake + scope map" },
-              { label: "DIRECTION APPROVED", value: "Visual system before build" },
-              { label: "LAUNCH DELIVERED", value: "Live site + handover" },
+              {[
+              { label: "BRIEF CONFIRMED", value: "Short call + clear plan" },
+              { label: "LOOK APPROVED", value: "Style locked before build" },
+              { label: "WEBSITE LIVE", value: "Launch + handover" },
             ].map((item) => (
-              <div key={item.label} className="surface-elite px-4 sm:px-5 py-4 rounded-[1.5rem]">
+              <div key={item.label} className="rounded-[1.5rem] border border-white/10 bg-slate-950/70 backdrop-blur-xl px-4 sm:px-5 py-4 shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
                 <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold">{item.label}</div>
                 <div className="text-sm font-black text-white mt-1">{item.value}</div>
               </div>
             ))}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:col-span-2 lg:col-span-1">
               {[
-                { label: "SLA", value: "15 MIN" },
-                { label: "NDA", value: "STANDARD" },
-                { label: "TEAM", value: "SENIOR-LED" }
+                { label: "REPLY", value: "15 MIN" },
+                { label: "CONFIDENTIAL", value: "BY DEFAULT" },
+                { label: "TEAM", value: "EXPERTS" }
               ].map((item) => (
-                <div key={item.label} className="surface-elite px-4 py-3 rounded-2xl text-center">
+                <div key={item.label} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-center">
                   <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold">{item.label}</div>
                   <div className="text-sm font-black text-white mt-1">{item.value}</div>
                 </div>
@@ -113,9 +113,9 @@ export function ProcessSteps() {
             </div>
           </div>
 
-          <div className="surface-elite rounded-[2rem] p-5 sm:p-8 lg:col-span-12">
+          <div className="rounded-[2rem] p-5 sm:p-8 lg:col-span-12 border border-white/10 bg-slate-950/70 backdrop-blur-xl shadow-[0_40px_120px_rgba(0,0,0,0.5)]">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500 font-bold">24H MAP</div>
+              <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500 font-bold">24-HOUR MAP</div>
               <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500 font-bold">H00 → H24</div>
             </div>
             <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden">
@@ -140,7 +140,7 @@ export function ProcessSteps() {
                       </div>
                     </div>
                     <div className="mt-3 text-[11px] text-slate-400 font-medium">
-                      Gate: <span className="text-slate-200">{step.gate}</span>
+                      Next: <span className="text-slate-200">{step.gate}</span>
                     </div>
                   </div>
                 ))}
@@ -149,7 +149,7 @@ export function ProcessSteps() {
             <div className="mt-4 flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold">
               <span>Brief</span>
               <ChevronRight className="w-4 h-4 text-primary/50" />
-              <span>Direction</span>
+              <span>Look</span>
               <ChevronRight className="w-4 h-4 text-primary/50" />
               <span>Build</span>
               <ChevronRight className="w-4 h-4 text-primary/50" />
@@ -166,7 +166,7 @@ export function ProcessSteps() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15 }}
                 className={[
-                  "group relative surface-elite rounded-[2rem] p-5 sm:p-7 lg:p-9 transition-colors flex flex-col min-h-[240px] sm:min-h-[300px] lg:min-h-[360px] min-w-0",
+                  "group relative rounded-[2rem] p-5 sm:p-7 lg:p-9 transition-colors flex flex-col min-h-[240px] sm:min-h-[300px] lg:min-h-[360px] min-w-0 border border-white/10 bg-slate-950/70 backdrop-blur-xl shadow-[0_28px_90px_rgba(0,0,0,0.5)]",
                   index === 0 ? "lg:col-span-7" : "",
                   index === 1 ? "lg:col-span-5" : "",
                   index === 2 ? "lg:col-span-5" : "",

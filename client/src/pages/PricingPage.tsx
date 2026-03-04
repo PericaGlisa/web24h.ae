@@ -4,45 +4,21 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
 
-const tiers = [
-  {
-    name: "LAUNCH",
-    price: "AED 1999",
-    description: "One-page premium site with a fast conversion core.",
-    features: [
-      "Hero + key sections",
-      "Light brand kit or implementation",
-      "Lead capture form",
-      "GA4 + tracking pixel",
-      "Global deploy + SSL",
-    ],
-  },
-  {
-    name: "GROWTH",
-    price: "AED 2999",
-    description: "Multi-section layout with deeper conversion flow.",
-    features: [
-      "Up to 3 pages",
-      "CTA strategy and layout",
-      "Event tracking for key actions",
-      "1 integration (CRM/booking/email)",
-      "24h delivery window",
-    ],
-    highlight: true,
-  },
-  {
-    name: "SCALE",
-    price: "AED 3999",
-    description: "Full build with performance pass and advanced tracking.",
-    features: [
-      "Up to 5 pages",
-      "2 integrations (CRM + automation)",
-      "Performance optimization pass",
-      "QA across mobile and desktop",
-      "Handover checklist",
-    ],
-  },
-];
+const signaturePackage = {
+  name: "SIGNATURE 24H",
+  price: "AED 1999",
+  description: "One premium offer with the strongest features from all previous tiers, delivered in 24 hours.",
+  features: [
+    "Up to 5 pages (or equivalent conversion sections)",
+    "Premium visual direction + conversion-focused structure",
+    "Event tracking setup for key actions",
+    "Up to 2 integrations (booking, CRM, email, or lead tools)",
+    "Performance pass with Core Web Vitals focus",
+    "Full QA on mobile and desktop",
+    "Global deploy + SSL",
+    "Clear handover with next-step roadmap",
+  ],
+};
 
 export default function PricingPage() {
   return (
@@ -65,7 +41,7 @@ export default function PricingPage() {
                 <span className="text-gradient-elite italic inline-block pr-3 sm:pr-2">ON VALUE.</span>
               </h1>
               <p className="text-base sm:text-lg md:text-2xl text-slate-300 max-w-3xl font-light leading-relaxed">
-                Transparent, fixed pricing with premium delivery. Pick the engagement size that fits your launch scope.
+                One clear package. No tier confusion. Premium execution from brief to launch.
               </p>
             </div>
           </div>
@@ -73,19 +49,23 @@ export default function PricingPage() {
 
         <section className="py-20 sm:py-28 bg-background">
           <div className="container mx-auto px-6">
-            <div className="grid lg:grid-cols-3 gap-6">
-              {tiers.map((tier) => (
-                <div
-                  key={tier.name}
-                  className={`surface-elite p-6 sm:p-8 flex flex-col border border-white/10 bg-slate-950/70 backdrop-blur-xl shadow-[0_28px_90px_rgba(0,0,0,0.45)] ${
-                    tier.highlight ? "border-primary/40 shadow-[0_40px_140px_rgba(0,210,184,0.2)]" : ""
-                  }`}
-                >
-                  <div className="text-[10px] uppercase tracking-[0.35em] text-slate-500 font-bold mb-3">{tier.name}</div>
-                  <div className="text-3xl sm:text-4xl font-black text-white mb-2">{tier.price}</div>
-                  <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed mb-6">{tier.description}</p>
-                  <div className="space-y-3 mb-8 flex-1">
-                    {tier.features.map((feature) => (
+            <div className="max-w-5xl mx-auto">
+              <div className="relative p-1 rounded-[2rem] sm:rounded-[2.75rem] bg-linear-to-b from-primary/80 via-primary/25 to-transparent shadow-[0_60px_180px_rgba(0,210,184,0.35)]">
+                <div className="surface-elite p-6 sm:p-10 lg:p-12 flex flex-col border border-white/10 bg-slate-950/80 backdrop-blur-xl rounded-[1.9rem] sm:rounded-[2.6rem] shadow-[0_40px_140px_rgba(0,0,0,0.5)]">
+                  <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
+                    <div>
+                      <div className="text-xs sm:text-sm uppercase tracking-[0.35em] text-primary font-black mb-3 drop-shadow-[0_0_24px_rgba(0,210,184,0.35)]">{signaturePackage.name}</div>
+                      <div className="text-3xl sm:text-4xl md:text-5xl font-black text-white">{signaturePackage.price}</div>
+                    </div>
+                    <div className="px-3 py-1 bg-primary text-slate-950 text-[10px] font-black rounded-full uppercase tracking-tighter shadow-[0_12px_40px_rgba(0,210,184,0.35)]">
+                      Only Offer
+                    </div>
+                  </div>
+
+                  <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed mb-8">{signaturePackage.description}</p>
+
+                  <div className="grid sm:grid-cols-2 gap-4 mb-10">
+                    {signaturePackage.features.map((feature) => (
                       <div key={feature} className="flex items-start gap-3">
                         <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
                           <CheckCircle2 className="w-3 h-3 text-primary" />
@@ -94,16 +74,17 @@ export default function PricingPage() {
                       </div>
                     ))}
                   </div>
-                  <Link href={`/private-intake?package=${tier.name.toLowerCase()}`}>
+
+                  <Link href="/private-intake?package=launch">
                     <Button
-                      onClick={() => window.sessionStorage.setItem("selectedPackage", tier.name)}
-                      className="h-12 sm:h-14 font-black text-sm sm:text-base transition-all duration-500 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-2xl"
+                      onClick={() => window.sessionStorage.setItem("selectedPackage", "Launch")}
+                      className="h-12 sm:h-14 font-black text-sm sm:text-base transition-all duration-500 bg-primary hover:bg-cyan-400 text-slate-950 shadow-[0_22px_50px_rgba(0,210,184,0.4)] rounded-2xl"
                     >
-                      BEGIN ENGAGEMENT <ArrowRight className="ml-2 w-4 h-4" />
+                      SECURE THIS PACKAGE <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </Link>
                 </div>
-              ))}
+              </div>
             </div>
 
             <div className="mt-12 sm:mt-16 grid lg:grid-cols-2 gap-6">

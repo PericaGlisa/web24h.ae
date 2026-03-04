@@ -1,8 +1,8 @@
 export function FeatureGrid() {
   return (
-    <section id="features" className="py-20 sm:py-24 lg:py-28 relative overflow-hidden bg-slate-950">
-      <div className="absolute inset-0 bg-linear-to-b from-slate-950 via-slate-950 to-slate-900/80" />
-      <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[460px] h-[460px] sm:w-[620px] sm:h-[620px] bg-primary/10 blur-[160px] opacity-35 pointer-events-none" />
+    <section id="features" className="py-24 sm:py-28 lg:py-32 relative overflow-hidden bg-slate-950">
+      <div className="absolute inset-0 bg-linear-to-b from-slate-950 via-slate-950 to-black/60" />
+      <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[460px] h-[460px] sm:w-[620px] sm:h-[620px] bg-primary/12 blur-[180px] opacity-35 pointer-events-none" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="mb-10 sm:mb-12">
@@ -19,7 +19,7 @@ export function FeatureGrid() {
           </div>
 
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-6 lg:gap-8">
-            <div className="relative rounded-[2rem] border border-white/15 bg-slate-950/75 backdrop-blur-xl p-8 sm:p-10 shadow-[0_30px_120px_rgba(0,0,0,0.45)] overflow-hidden">
+            <div className="relative rounded-[2rem] border border-white/10 bg-slate-950/70 backdrop-blur-xl p-8 sm:p-10 shadow-[0_30px_120px_rgba(0,0,0,0.55)] overflow-hidden">
               <div className="absolute inset-0 bg-linear-to-b from-white/5 via-transparent to-transparent opacity-70" />
               <div className="absolute -top-12 -left-10 text-[160px] sm:text-[200px] font-black text-white/5">“</div>
               <div className="relative">
@@ -39,7 +39,7 @@ export function FeatureGrid() {
               ].map((item) => (
                 <div
                   key={item.role}
-                  className="relative rounded-[1.5rem] border border-white/15 bg-slate-950/70 backdrop-blur-xl p-6 sm:p-8 shadow-[0_20px_80px_rgba(0,0,0,0.35)] overflow-hidden"
+                  className="relative rounded-[1.5rem] border border-white/10 bg-slate-950/70 backdrop-blur-xl p-6 sm:p-8 shadow-[0_20px_80px_rgba(0,0,0,0.45)] overflow-hidden"
                 >
                   <div className="absolute -top-10 -left-8 text-[120px] sm:text-[150px] font-black text-white/5">“</div>
                   <div className="relative">

@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, ChevronUp } from "lucide-react";
 import { Link } from "wouter";
 
 export function Footer() {
@@ -22,27 +22,27 @@ export function Footer() {
               </Link>
             </div>
             <p className="text-slate-300 text-sm leading-relaxed">
-              A private digital studio delivering premium websites in 24 hours with speed, clarity, and precision.
+              A small expert team delivering clear, customer-ready websites in 24 hours.
             </p>
-            <div className="mt-4 text-xs text-slate-500">References available under NDA.</div>
+            <div className="mt-4 text-xs text-slate-500">Work samples available on request.</div>
           </div>
           
           <div className="rounded-2xl border border-white/5 bg-white/5 p-6 sm:p-7">
-            <h4 className="text-[11px] uppercase tracking-[0.35em] text-slate-500 font-bold mb-5">Studio</h4>
+            <h4 className="text-[11px] uppercase tracking-[0.35em] text-slate-500 font-bold mb-5">Service</h4>
             <ul className="space-y-3 text-sm text-slate-300">
               <li>
                 <Link href="/capabilities" className="hover:text-primary transition-colors">
-                  Capabilities
+                  What we do
                 </Link>
               </li>
               <li>
                 <Link href="/method" className="hover:text-primary transition-colors">
-                  Method
+                  How we work
                 </Link>
               </li>
               <li>
-                <Link href="/investment" className="hover:text-primary transition-colors">
-                  Investment
+                <Link href="/pricing" className="hover:text-primary transition-colors">
+                  Plans
                 </Link>
               </li>
             </ul>
@@ -90,11 +90,18 @@ export function Footer() {
         </div>
         
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-slate-500">
-          <div>&copy; {new Date().getFullYear()} Website 24h. All rights reserved.</div>
-          <div className="flex items-center gap-3">
+          <div className="order-2 md:order-1">&copy; {new Date().getFullYear()} Website 24h. All rights reserved.</div>
+          <div className="order-1 md:order-2 flex items-center gap-3">
             <a href="#" className="h-10 w-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:text-primary hover:border-primary/40 hover:bg-white/10 transition-colors"><Linkedin className="w-4 h-4" /></a>
             <a href="#" className="h-10 w-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:text-primary hover:border-primary/40 hover:bg-white/10 transition-colors"><Twitter className="w-4 h-4" /></a>
             <a href="#" className="h-10 w-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:text-primary hover:border-primary/40 hover:bg-white/10 transition-colors"><Instagram className="w-4 h-4" /></a>
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="h-10 px-4 rounded-full border border-white/10 bg-white/5 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] hover:text-primary hover:border-primary/40 hover:bg-white/10 transition-colors"
+            >
+              Back to top <ChevronUp className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </div>

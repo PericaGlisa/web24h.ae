@@ -59,16 +59,16 @@ export function Navbar() {
           </div>
         </Link>
 
-        <div className="hidden md:flex items-center gap-6">
-          {[
-            { label: "Features", href: "/features" },
-            { label: "Process", href: "/process" },
-            { label: "Pricing", href: "/pricing" },
+        <div className="hidden md:flex items-center gap-3 lg:gap-6">
+            {[
+            { label: "Why it works", href: "/features" },
+            { label: "How it works", href: "/process" },
+            { label: "Plans", href: "/pricing" },
           ].map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-xs font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors relative group px-3 py-2 rounded-full hover:bg-white/10"
+              className="text-[11px] lg:text-xs font-bold tracking-[0.14em] lg:tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors relative group px-2.5 lg:px-3 py-2 rounded-full hover:bg-white/10 whitespace-nowrap"
             >
               {item.label}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
@@ -76,9 +76,9 @@ export function Navbar() {
           ))}
           <Link
             href="/private-intake"
-            className="inline-flex items-center bg-primary hover:bg-cyan-400 text-slate-950 font-black rounded-2xl px-8 h-12 shadow-[0_18px_50px_rgba(0,210,184,0.45)] ring-1 ring-primary/40 transition-all hover:scale-105 active:scale-95"
+            className="inline-flex items-center bg-primary hover:bg-cyan-400 text-slate-950 font-black rounded-2xl px-5 lg:px-8 h-11 lg:h-12 text-[11px] lg:text-sm shadow-[0_18px_50px_rgba(0,210,184,0.45)] ring-1 ring-primary/40 transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
           >
-            PRIVATE INTAKE <Fingerprint className="w-4 h-4 ml-2" />
+            START A PROJECT <Fingerprint className="w-4 h-4 ml-2" />
           </Link>
         </div>
 
@@ -124,9 +124,9 @@ export function Navbar() {
                       </button>
                     </div>
                     <div>
-                      <SheetTitle className="text-left text-white font-black text-2xl">COMMAND CENTER</SheetTitle>
+                      <SheetTitle className="text-left text-white font-black text-2xl">MENU</SheetTitle>
                       <SheetDescription className="text-left text-slate-500">
-                        Navigate the private studio.
+                        Everything you need in one place.
                       </SheetDescription>
                     </div>
                   </SheetHeader>
@@ -135,9 +135,9 @@ export function Navbar() {
                 <div className="flex-1 px-6 py-8 overflow-y-auto">
                   <div className="grid gap-4">
                     {[
-                      { label: "FEATURES", href: "/features", detail: "Signature capabilities" },
-                      { label: "PROCESS", href: "/process", detail: "How we deliver in 24h" },
-                      { label: "PRICING", href: "/pricing", detail: "Launch tiers" },
+                      { label: "WHY IT WORKS", href: "/features", detail: "What makes it effective" },
+                      { label: "HOW IT WORKS", href: "/process", detail: "From brief to live in 24h" },
+                      { label: "PLANS", href: "/pricing", detail: "Choose a plan" },
                     ].map((item) => (
                       <Link
                         key={item.href}
@@ -161,10 +161,10 @@ export function Navbar() {
                       onClick={() => setMobileOpen(false)}
                       className="w-full h-14 text-base font-black bg-primary text-slate-950 inline-flex items-center justify-center rounded-2xl hover:bg-cyan-400 transition-colors"
                     >
-                      PRIVATE INTAKE
+                      START A PROJECT
                     </Link>
                     <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold text-center">
-                      NDA-ready • Senior-led • 24h delivery
+                      Confidential • Expert team • 24-hour delivery
                     </div>
                   </div>
                 </div>

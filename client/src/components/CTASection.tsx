@@ -7,14 +7,14 @@ export function CTASection() {
 
   return (
     <section className="py-24 sm:py-28 lg:py-32 bg-slate-950 relative overflow-hidden">
-      <div className="absolute inset-0 bg-linear-to-b from-slate-900/70 via-slate-950 to-slate-950 pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-slate-900/70 via-slate-950 to-black/70 pointer-events-none" />
       <div className="absolute inset-0 opacity-20 pointer-events-none">
-         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(0,210,184,0.1),transparent_70%)]" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(0,210,184,0.12),transparent_70%)]" />
       </div>
       <div className="absolute inset-0 noise-overlay pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-6xl mx-auto surface-elite p-8 sm:p-12 lg:p-24 text-center rounded-[2rem] sm:rounded-[3rem] relative overflow-hidden">
+        <div className="max-w-6xl mx-auto surface-elite p-8 sm:p-12 lg:p-24 text-center rounded-[2rem] sm:rounded-[3rem] relative overflow-hidden border border-white/10 bg-slate-950/70 backdrop-blur-xl shadow-[0_40px_120px_rgba(0,0,0,0.55)]">
           <div className="absolute top-0 left-0 w-24 h-24 sm:w-32 sm:h-32 border-t-2 border-l-2 border-primary/30 rounded-tl-[2rem] sm:rounded-tl-[3rem] pointer-events-none" />
           <div className="absolute bottom-0 right-0 w-24 h-24 sm:w-32 sm:h-32 border-b-2 border-r-2 border-primary/30 rounded-br-[2rem] sm:rounded-br-[3rem] pointer-events-none" />
 
@@ -25,11 +25,11 @@ export function CTASection() {
             transition={{ duration: 1 }}
           >
             <h2 className="font-display text-4xl sm:text-5xl md:text-8xl font-black text-white mb-6 sm:mb-8 tracking-tighter leading-none">
-              READY FOR <br />
-              <span className="text-gradient-elite inline-block pr-2 sm:pr-3">A PRIVATE BRIEF?</span>
+              READY TO <br />
+              <span className="text-gradient-elite inline-block pr-2 sm:pr-3">GET YOUR SITE LIVE?</span>
             </h2>
             <p className="text-base sm:text-lg md:text-2xl text-slate-300 mb-10 sm:mb-16 max-w-2xl mx-auto font-light leading-relaxed">
-              This site is a live demonstration of our craft. We accept a limited number of engagements per week.
+              We build your website in one focused day. We take a limited number of projects per week.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
@@ -45,7 +45,7 @@ export function CTASection() {
                   ]
                 }}
                 transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-                className="relative overflow-hidden w-full sm:w-auto h-12 sm:h-20 px-6 sm:px-16 text-sm sm:text-xl bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_24px_60px_rgba(0,210,184,0.35)] transition-all hover:scale-105 active:scale-95 group whitespace-normal sm:whitespace-nowrap text-center"
+                className="relative overflow-hidden w-full sm:w-auto h-12 sm:h-20 px-6 sm:px-16 text-sm sm:text-xl bg-primary hover:bg-cyan-400 text-slate-950 font-black shadow-[0_24px_60px_rgba(0,210,184,0.35)] transition-all hover:scale-105 active:scale-95 group whitespace-normal sm:whitespace-nowrap text-center rounded-2xl"
               >
                 <Link href="/private-intake">
                   <motion.span
@@ -59,18 +59,18 @@ export function CTASection() {
                     }}
                   />
                   <span className="relative z-10">
-                    REQUEST WHITE-GLOVE CALL
+                    START MY WEBSITE
                   </span>
                 </Link>
               </MotionButton>
               <div className="flex items-center gap-3 sm:gap-4 text-slate-500 font-bold tracking-widest text-[10px] sm:text-xs uppercase">
                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                 LIVE AVAILABILITY: 2 SLOTS LEFT
+                 AVAILABILITY: 2 SLOTS THIS WEEK
               </div>
             </div>
 
             <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.35em] text-slate-500 font-bold">
-              {["NDA SIGNED", "GLOBAL DELIVERY", "EXECUTIVE SLA"].map((item) => (
+              {["CONFIDENTIAL", "WORLDWIDE LAUNCH", "FAST REPLY"].map((item) => (
                 <span key={item} className="px-3 py-1 rounded-full border border-white/10 bg-white/5">
                   {item}
                 </span>
