@@ -2,37 +2,16 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowUpRight, CheckCircle2, Clock, ShieldCheck, Sparkles } from "lucide-react";
 import { useState } from "react";
 
 export default function PrivateIntake() {
-  const normalizePackage = (value: string) => {
-    const normalized = value.trim().toLowerCase();
-    if (normalized.startsWith("launch")) return "Launch";
-    if (normalized.startsWith("growth")) return "Growth";
-    if (normalized.startsWith("scale")) return "Scale";
-    return "";
-  };
-
-  const resolveInitialPackage = () => {
-    if (typeof window === "undefined") {
-      return "";
-    }
-    const params = new URLSearchParams(window.location.search);
-    const fromQuery = params.get("package") ?? params.get("tier") ?? "";
-    const fromStorage = window.sessionStorage.getItem("selectedPackage") ?? "";
-    return normalizePackage(fromQuery || fromStorage);
-  };
-
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
   const [phone, setPhone] = useState("");
   const [website, setWebsite] = useState("");
-  const [packageTier, setPackageTier] = useState(resolveInitialPackage);
-  const [launchWindow, setLaunchWindow] = useState("");
   const [preferredStartPreset, setPreferredStartPreset] = useState("");
   const [goal, setGoal] = useState("");
   const [notes, setNotes] = useState("");
@@ -173,8 +152,7 @@ export default function PrivateIntake() {
                             company,
                             phone,
                             website,
-                            packageTier,
-                            launchWindow,
+                            packageTier: "SIGNATURE 24H",
                             preferredStartPreset,
                             goal,
                             notes,
@@ -243,65 +221,34 @@ export default function PrivateIntake() {
                       </div>
                     </div>
 
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
-                        <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold mb-2">Website</div>
-                        <Input
-                          value={website}
-                          onChange={(e) => setWebsite(e.target.value)}
-                          placeholder="https://"
-                          className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-primary/60 focus:ring-1 focus:ring-primary/30"
-                        />
-                      </div>
-                      <div>
-                        <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold mb-2">Selected package</div>
-                        <Select value={packageTier} onValueChange={setPackageTier}>
-                          <SelectTrigger className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 h-11 focus:border-primary/60 focus:ring-1 focus:ring-primary/30">
-                            <SelectValue placeholder="Choose package" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="Launch">Launch</SelectItem>
-                            <SelectItem value="Growth">Growth</SelectItem>
-                            <SelectItem value="Scale">Scale</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
+                    <div>
+                      <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold mb-2">Website</div>
+                      <Input
+                        value={website}
+                        onChange={(e) => setWebsite(e.target.value)}
+                        placeholder="https://"
+                        className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-primary/60 focus:ring-1 focus:ring-primary/30"
+                      />
                     </div>
 
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
-                        <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold mb-2">Launch window</div>
-                        <Select value={launchWindow} onValueChange={setLaunchWindow}>
-                          <SelectTrigger className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 h-11 focus:border-primary/60 focus:ring-1 focus:ring-primary/30">
-                            <SelectValue placeholder="Select timing" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="Next 24h">Next 24h</SelectItem>
-                            <SelectItem value="Next 48h">Next 48h</SelectItem>
-                            <SelectItem value="This week">This week</SelectItem>
-                            <SelectItem value="Flexible">Flexible</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div>
-                        <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold mb-2">Preferred start date</div>
-                        <div className="grid grid-cols-3 gap-2">
-                          {["ASAP", "Next week", "Next month"].map((preset) => (
-                            <Button
-                              key={preset}
-                              type="button"
-                              variant="outline"
-                              onClick={() => setPreferredStartPreset((current) => (current === preset ? "" : preset))}
-                              className={`h-10 text-xs font-bold tracking-wide border ${
-                                preferredStartPreset === preset
-                                  ? "bg-primary text-slate-950 border-primary"
-                                  : "bg-white/5 border-white/10 text-white hover:bg-white/10"
-                              }`}
-                            >
-                              {preset}
-                            </Button>
-                          ))}
-                        </div>
+                    <div>
+                      <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold mb-2">Preferred start</div>
+                      <div className="grid grid-cols-3 gap-2">
+                        {["ASAP", "Next week", "Next month"].map((preset) => (
+                          <Button
+                            key={preset}
+                            type="button"
+                            variant="outline"
+                            onClick={() => setPreferredStartPreset((current) => (current === preset ? "" : preset))}
+                            className={`h-10 text-xs font-bold tracking-wide border ${
+                              preferredStartPreset === preset
+                                ? "bg-primary text-slate-950 border-primary"
+                                : "bg-white/5 border-white/10 text-white hover:bg-white/10"
+                            }`}
+                          >
+                            {preset}
+                          </Button>
+                        ))}
                       </div>
                     </div>
 

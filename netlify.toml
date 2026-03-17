@@ -12,3 +12,8 @@ directory = "netlify/functions"
 from = "/api/private-intake"
 to = "/.netlify/functions/private-intake"
 status = 200
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200

@@ -21,6 +21,8 @@ const plan = {
   ],
 };
 
+const paypalCheckoutUrl = "https://www.paypal.com/paypalme/RodoljubRakic/1999AED";
+
 export function Pricing() {
   return (
     <section id="pricing" className="py-24 sm:py-28 lg:py-32 bg-slate-950 relative overflow-hidden">
@@ -82,17 +84,27 @@ export function Pricing() {
                 ))}
               </ul>
 
-              <Button
-                asChild
-                className="w-full h-14 sm:h-16 font-black text-base sm:text-lg bg-primary hover:bg-cyan-400 text-slate-950 shadow-[0_28px_70px_rgba(0,210,184,0.45)] transition-all duration-500 hover:scale-[1.02]"
-              >
-                <Link
-                  href="/private-intake?package=launch"
-                  onClick={() => window.sessionStorage.setItem("selectedPackage", "Launch")}
+              <div className="grid sm:grid-cols-2 gap-3">
+                <Button
+                  asChild
+                  className="w-full h-14 sm:h-16 font-black text-base sm:text-lg bg-primary hover:bg-cyan-400 text-slate-950 shadow-[0_28px_70px_rgba(0,210,184,0.45)] transition-all duration-500 hover:scale-[1.02]"
                 >
-                  SECURE THIS PACKAGE
-                </Link>
-              </Button>
+                  <a href={paypalCheckoutUrl} target="_blank" rel="noreferrer">
+                    PAY WITH PAYPAL
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  className="w-full h-14 sm:h-16 font-black text-base sm:text-lg bg-white/5 hover:bg-white/10 text-white border border-white/10 transition-all duration-500"
+                >
+                  <Link
+                    href="/private-intake?package=launch"
+                    onClick={() => window.sessionStorage.setItem("selectedPackage", "Launch")}
+                  >
+                    REQUEST PRIVATE INTAKE
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </motion.div>

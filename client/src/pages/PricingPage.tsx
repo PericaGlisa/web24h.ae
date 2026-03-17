@@ -20,6 +20,8 @@ const signaturePackage = {
   ],
 };
 
+const paypalCheckoutUrl = "https://www.paypal.com/paypalme/RodoljubRakic/1999AED";
+
 export default function PricingPage() {
   return (
     <div className="min-h-screen font-sans text-slate-900 dark:text-slate-50 selection:bg-primary/30">
@@ -75,14 +77,24 @@ export default function PricingPage() {
                     ))}
                   </div>
 
-                  <Link href="/private-intake?package=launch">
+                  <div className="grid sm:grid-cols-2 gap-3">
                     <Button
-                      onClick={() => window.sessionStorage.setItem("selectedPackage", "Launch")}
+                      asChild
                       className="h-12 sm:h-14 font-black text-sm sm:text-base transition-all duration-500 bg-primary hover:bg-cyan-400 text-slate-950 shadow-[0_22px_50px_rgba(0,210,184,0.4)] rounded-2xl"
                     >
-                      SECURE THIS PACKAGE <ArrowRight className="ml-2 w-4 h-4" />
+                      <a href={paypalCheckoutUrl} target="_blank" rel="noreferrer">
+                        PAY WITH PAYPAL <ArrowRight className="ml-2 w-4 h-4" />
+                      </a>
                     </Button>
-                  </Link>
+                    <Link href="/private-intake?package=launch">
+                      <Button
+                        onClick={() => window.sessionStorage.setItem("selectedPackage", "Launch")}
+                        className="h-12 sm:h-14 font-black text-sm sm:text-base transition-all duration-500 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-2xl"
+                      >
+                        REQUEST PRIVATE INTAKE
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
